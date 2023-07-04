@@ -1,0 +1,63 @@
+{% load static %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home-page' %}">
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <li><img class="logo me-2" src="{% static 'img/logo.png' %}" alt="logo"></li>
+                <li><h1 style="color: #5a6268; font-weight: bold">MP</h1></li>
+            </ul>
+             </a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <!-- Search form -->
+            {% if user.is_authenticated %}
+            <form class="d-flex" method=POST action="">
+                {% csrf_token %}
+                <input class="form-control me-sm-2" type="search" placeholder="Equipment Number"
+                       name="searched">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i
+                        class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+            </form>
+            {% endif %}
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <!-- If user is not logged in -->
+            {% if not request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket fa-lg me-2"></i>Sig In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}"><i class="fa-regular fa-address-card fa-lg me-2"></i>Sig Up
+                    </a>
+                </li>
+                <!-- If user is  logged in -->
+                <!-- Avatar -->
+                {% else %}
+{#                <li class="nav-item">You are logged in as @{{ request.user }} </li>#}
+                <li class="nav-item dropdown">
+                    <div class="btn-group dropstart">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                             {% if user.profile.image %}
+                                    <img src="{{ user.profile.image.url }}" class="rounded-circle" height="35" loading="lazy"/>
+                                {% else %}
+                                    <img src="{% static 'img/profile-img.png' %}" class="rounded-circle" height="35"
+                                         loading="lazy"/>
+                                {% endif %}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'profile-update' %}">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                        </div>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->

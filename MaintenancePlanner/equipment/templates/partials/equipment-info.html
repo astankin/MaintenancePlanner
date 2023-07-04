@@ -1,0 +1,90 @@
+<table class="table table-hover">
+    <tr>
+        <td>Type:</td>
+        <td><strong>{{ machine.type }}</strong></td>
+    </tr>
+    <tr>
+        <td>
+            Manufacturer:
+        </td>
+        <td>
+            <strong>{{ machine.manufacturer|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Model Number:
+        </td>
+        <td>
+            <strong>{{ machine.model_number|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Year of Manufacture:
+        </td>
+        <td>
+            <strong>{{ machine.year_of_manufacture|default_if_none:'' }}</strong>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            Serial Number:
+        </td>
+        <td>
+            <strong>{{ machine.serial_number|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Part Number:
+        </td>
+        <td>
+            <strong>{{ machine.part_number|default_if_none:'' }}</strong>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            Department:
+        </td>
+        <td>
+            <strong>{{ machine.department }}</strong>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            Acquisition Date:
+        </td>
+        <td>
+            <strong>{{ machine.acquisition_date|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Acquisition Value:
+        </td>
+        <td>
+            <strong>{{ machine.acquisition_value|floatformat:2 }} {{ machine.currency_code }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Last Checked Date:
+        </td>
+        <td>
+            <strong>{{ machine.last_checked_date|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Next Checked Date:
+        </td>
+        <td>
+            <strong>{{ machine.next_check_date|default_if_none:'' }}</strong>
+        </td>
+    </tr>
+</table>
