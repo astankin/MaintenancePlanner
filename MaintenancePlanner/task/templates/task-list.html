@@ -6,9 +6,13 @@
                 <div class="card-header">
                     <i class="fa-solid fa-clipboard-list fa-lg me-2"></i>
                     {% if count > 0 %}
-                        <span class="text-danger">You have {{ count }} incomplete task{{ count|pluralize:'s' }}</span>
+                        <span class="text-danger">
+                            <strong>You have {{ count }} incomplete task{{ count|pluralize:'s' }}</strong>
+                        </span>
                     {% else %}
-                        <span class="text-success">You don't have any incomplete task</span>
+                        <span class="text-success">
+                            <strong>You don't have any incomplete task</strong>
+                        </span>
                     {% endif %}
                 </div>
                 <div class="card-body">
@@ -22,7 +26,7 @@
                                 <th scope="col">Description</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Created</th>
-                                <th scope="col">Action</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -33,21 +37,23 @@
 
                                     </td>
                                     <td>
-                                        <a class=" link-dark" href="{% url 'update-task' task.id %}">
+                                        <a class="link-primary" href="{% url 'update-task' task.id %}">
                                             {{ task.title }}
                                         </a>
                                     </td>
                                     <td>{{ task.description|truncatechars:50 }}</td>
-                                    <td>{% if task.complete %}
-                                        Completed
-                                    {% else %}
-                                        Not Completed
-                                    {% endif %}</td>
                                     <td>{{ task.created_on }}</td>
+                                    <td>{% if task.complete %}
+                                        <span class="text-success fw-bold">Complete</span>
+                                    {% else %}
+                                        <span class="text-danger fw-bold">Incomplete</span>
+                                    {% endif %}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{% url 'update-task' task.id %}">
-                                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                                        </a>
+                                        {% if task.complete %}
+                                            <i class="fa-regular fa-circle-check fa-lg fw-bold text-success"></i>
+                                        {% else %}
+                                            <i class="fa-solid fa-circle-xmark fa-lg fw-bold text-danger"></i>
+                                        {% endif %}
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -61,7 +67,7 @@
             <!-- If no any task in the record -->
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
-                    <h5 class="alert alert-primary ms-4 me-4">There is no task assigned for you </h5>
+                    <h5 class="alert alert-primary ms-4 me-4">There is no task assigned to you </h5>
                 </div>
             </div>
         {% endif %}

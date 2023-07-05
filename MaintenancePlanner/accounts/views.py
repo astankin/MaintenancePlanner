@@ -2,13 +2,15 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, DeleteView
 
 from MaintenancePlanner.accounts.decorators import unauthenticated_user
 from MaintenancePlanner.accounts.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from MaintenancePlanner.accounts.models import AppUser
 
 
 @unauthenticated_user
@@ -69,3 +71,15 @@ def profile_update(request):
         'p_form': p_form,
     }
     return render(request, 'profile/profile-update.html', context)
+
+
+class ListUsers(LoginRequiredMixin, ListView):
+    model = AppUser
+    template_name = 'users-list.html'
+    context_object_name = 'users'
+
+
+class DeleteUser(LoginRequiredMixin, DeleteView):
+    model = AppUser
+    context_object_name = 'users'
+    success_url = reverse_lazy('users-list')
