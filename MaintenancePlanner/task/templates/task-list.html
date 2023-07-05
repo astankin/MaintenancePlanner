@@ -5,7 +5,11 @@
             <div class="card bg-light ms-1 me-4 mb-4 mt-0">
                 <div class="card-header">
                     <i class="fa-solid fa-clipboard-list fa-lg me-2"></i>
-                    <span class="text-danger">You have {{ count }} uncompleted task{{ count|pluralize:'s' }}</span>
+                    {% if count > 0 %}
+                        <span class="text-danger">You have {{ count }} incomplete task{{ count|pluralize:'s' }}</span>
+                    {% else %}
+                        <span class="text-success">You don't have any incomplete task</span>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <p class="card-text">

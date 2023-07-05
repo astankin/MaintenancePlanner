@@ -11,23 +11,6 @@ from MaintenancePlanner.accounts.decorators import unauthenticated_user
 from MaintenancePlanner.accounts.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
-# Create your views here.
-# class RegisterView(CreateView):
-#     template_name = 'register.html'
-#     form_class = SignUpForm
-#     success_url = reverse_lazy('login')
-@unauthenticated_user
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserRegisterForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             messages.success(request, f'Account created for {username}! Please Login!')
-#             return redirect('login')
-#     else:
-#         form = UserRegisterForm()
-#     return render(request, 'register.html', {'form': form})
 @unauthenticated_user
 def register(request):
     if request.method == 'POST':
