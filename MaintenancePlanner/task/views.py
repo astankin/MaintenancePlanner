@@ -8,7 +8,7 @@ from MaintenancePlanner.task.models import Task
 
 
 # Create your views here.
-class CreateTask(CreateView):
+class CreateTask(LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'create-task.html'
     form_class = CreateTaskForm

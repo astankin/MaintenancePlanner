@@ -14,11 +14,11 @@ class PlantCreateView(LoginRequiredMixin, CreateView):
     success_url = '/'
 
 
-class PlantUpdateView(UpdateView):
+class PlantUpdateView(LoginRequiredMixin, UpdateView):
     pass
 
 
-class PlantDeleteView(DeleteView):
+class PlantDeleteView(LoginRequiredMixin, DeleteView):
     pass
 
 
