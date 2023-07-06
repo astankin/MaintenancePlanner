@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Add Users List">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/templates/task-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/templates/task-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/templates/update-task.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/templates/update-task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +86,7 @@
       <workItem from="1688499448345" duration="116000" />
       <workItem from="1688500024153" duration="1522000" />
       <workItem from="1688534631934" duration="3626000" />
-      <workItem from="1688575562288" duration="16315000" />
+      <workItem from="1688575562288" duration="16937000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -112,7 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688661233605</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Users List">
+      <created>1688669428817</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688669428817</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add Users List">
+      <created>1688669571998</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688669571998</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

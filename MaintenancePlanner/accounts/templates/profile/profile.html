@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
       <div class="row justify-content-center mt-3">
-            <div class="col-4">
+            <div class="col-6">
                 <div class="card bg-light mb-3" style="max-width: 200rem;">
                   <div class="card-header">
                       <h4>@{{ user.username }}</h4>
@@ -14,7 +14,7 @@
                   <div class="card-body">
                       <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
                         <p class="card-text">{{ user.email }}</p>
-                        <a href="{% url 'profile-update' %}">Edit Profile</a>
+                        <a class="link-primary link-offset-2 link-underline-opacity-25" href="{% url 'profile-update' %}">Edit Profile</a>
                   </div>
             </div>
             </div>
