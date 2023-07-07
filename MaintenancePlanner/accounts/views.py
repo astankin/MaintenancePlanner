@@ -38,8 +38,10 @@ def login_user(request):
             return redirect('home-page')
         else:
             pass
-            messages.warning(request,
-                             'Please enter a correct username and password. Note that both fields may be case-sensitive.')
+            messages.warning(
+                request,
+                'Please enter a correct username and password. Note that both fields may be case-sensitive.',
+            )
     form = AuthenticationForm()
     context = {
         'form': form
