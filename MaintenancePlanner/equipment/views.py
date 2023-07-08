@@ -66,3 +66,20 @@ def delete_equipment(request, pk):
     if request.method == 'POST':
         equipment.delete()
         return redirect('equipment-list')
+
+
+def search_equipment(request):
+    if request.method == "POST":
+        number = request.POST['number']
+        try:
+            equipment = Equipment.objects.get(pk=number)
+        except:
+            return render(request, 'exception.html')
+
+        context = {
+            'number': number,
+            'equipment': equipment
+        }
+        return render(request, 'search-equipment.html', context)
+    else:
+        return render(request, 'search-equipment.html', {})

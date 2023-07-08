@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <!-- Search form -->
             {% if user.is_authenticated %}
-            <form class="d-flex" method=POST action="">
+            <form class="d-flex" method=POST action="{% url 'search-equipment' %}">
                 {% csrf_token %}
                 <input class="form-control me-sm-2" type="search" placeholder="Equipment Number"
-                       name="searched">
+                       name="number">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i
                         class="fa-solid fa-magnifying-glass fa-lg"></i></button>
             </form>

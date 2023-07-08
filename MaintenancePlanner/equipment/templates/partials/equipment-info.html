@@ -1,14 +1,14 @@
 <table class="table table-hover">
     <tr>
         <td>Type:</td>
-        <td><strong>{{ machine.type }}</strong></td>
+        <td><strong>{{ eq.type }}</strong></td>
     </tr>
     <tr>
         <td>
             Manufacturer:
         </td>
         <td>
-            <strong>{{ machine.manufacturer|default_if_none:'' }}</strong>
+            <strong>{{ eq.manufacturer|default_if_none:'' }}</strong>
         </td>
     </tr>
     <tr>
@@ -16,7 +16,7 @@
             Model Number:
         </td>
         <td>
-            <strong>{{ machine.model_number|default_if_none:'' }}</strong>
+            <strong>{{ eq.model_number|default_if_none:'' }}</strong>
         </td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@
             Year of Manufacture:
         </td>
         <td>
-            <strong>{{ machine.year_of_manufacture|default_if_none:'' }}</strong>
+            <strong>{{ eq.year_of_manufacture|default_if_none:'' }}</strong>
         </td>
 
     </tr>
@@ -33,7 +33,7 @@
             Serial Number:
         </td>
         <td>
-            <strong>{{ machine.serial_number|default_if_none:'' }}</strong>
+            <strong>{{ eq.serial_number|default_if_none:'' }}</strong>
         </td>
     </tr>
 
@@ -42,7 +42,7 @@
             Part Number:
         </td>
         <td>
-            <strong>{{ machine.part_number|default_if_none:'' }}</strong>
+            <strong>{{ eq.part_number|default_if_none:'' }}</strong>
         </td>
 
     </tr>
@@ -51,7 +51,7 @@
             Department:
         </td>
         <td>
-            <strong>{{ machine.department }}</strong>
+            <strong>{{ eq.department }}</strong>
         </td>
 
     </tr>
@@ -60,7 +60,7 @@
             Acquisition Date:
         </td>
         <td>
-            <strong>{{ machine.acquisition_date|default_if_none:'' }}</strong>
+            <strong>{{ eq.acquisition_date|default_if_none:'' }}</strong>
         </td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
             Acquisition Value:
         </td>
         <td>
-            <strong>{{ machine.acquisition_value|floatformat:2 }} {{ machine.currency_code }}</strong>
+            <strong>{{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}</strong>
         </td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@
             Last Checked Date:
         </td>
         <td>
-            <strong>{{ machine.last_checked_date|default_if_none:'' }}</strong>
+            <strong>{{ eq.last_checked_date|default_if_none:'' }}</strong>
         </td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@
             Next Checked Date:
         </td>
         <td>
-            <strong>{{ machine.next_check_date|default_if_none:'' }}</strong>
+            <strong>{{ eq.next_check_date|default_if_none:'' }}</strong>
         </td>
     </tr>
 </table>
