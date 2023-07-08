@@ -6,13 +6,31 @@ from MaintenancePlanner.equipment.models import Equipment
 
 # Create your models here.
 
-#
-# class MaintenancePlan(models.Model):
-#     name = models.CharField(
-#         max_length=100,
-#     )
-#     equipment = models.ForeignKey(
-#         to=Equipment,
-#         on_delete=models.CASCADE,
-#     )
 
+class MaintenancePlanModel(models.Model):
+    name = models.CharField(
+        max_length=30,
+        unique=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    equipment = models.OneToOneField(
+        to=Equipment,
+        on_delete=models.CASCADE,
+    )
+
+
+class Operation(models.Model):
+    title = models.CharField(
+        max_length=30,
+    )
+    description = models.TextField()
+    maintenance_plan = models.ForeignKey(
+        to=MaintenancePlanModel,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.title

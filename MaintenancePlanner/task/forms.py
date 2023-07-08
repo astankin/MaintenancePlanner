@@ -6,18 +6,11 @@ from MaintenancePlanner.task.models import Task
 class CreateTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude = ('complete',)
+        exclude = ('complete', 'equipment')
         widgets = {
             'technician': forms.Select(attrs={'class': 'form-control'}),
-            'equipment': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
-            'complete': forms.CheckboxInput(attrs={
-                'class': 'form-check-input',
-                'type': "checkbox",
-                'value': "",
-                'id': "flexCheckDefault",
-            }),
             'created_on': forms.DateInput(format="%d/%m/%Y", attrs={'class': 'form-control', 'type': 'date'}),
 
         }

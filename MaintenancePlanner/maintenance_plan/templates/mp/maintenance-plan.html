@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div>
+                {{ mp.name }}
+            </div>
+            <div>
+                {% for operation in operations %}
+                    <ul>
+                        <li><a href="{% url 'operation-details' operation.id %}">{{ operation }}</a></li>
+                    </ul>
+                {% endfor %}
+                <input type="hidden" value="{{ next }}" name="next"/>
+                <a href="{% url 'create-operation' mp.id %}">
+                    Add Operation
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

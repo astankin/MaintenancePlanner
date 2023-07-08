@@ -9,6 +9,6 @@ urlpatterns = [
     path('equipment/', include('MaintenancePlanner.equipment.urls')),
     path('user/', include('MaintenancePlanner.accounts.urls')),
     path('plant/', include('MaintenancePlanner.plant.urls')),
-    path('maintenance-plan/', include('MaintenancePlanner.maintenance_plan.urls')),
+    path('mp/', include('MaintenancePlanner.maintenance_plan.urls')),
     path('task/', include('MaintenancePlanner.task.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

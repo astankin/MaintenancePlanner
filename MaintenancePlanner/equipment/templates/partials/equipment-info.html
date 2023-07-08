@@ -73,18 +73,16 @@
     </tr>
     <tr>
         <td>
-            Last Checked Date:
+            Maintenance Plan:
         </td>
         <td>
-            <strong>{{ eq.last_checked_date|default_if_none:'' }}</strong>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Next Checked Date:
-        </td>
-        <td>
-            <strong>{{ eq.next_check_date|default_if_none:'' }}</strong>
+            {% if eq.maintenanceplanmodel %}
+                <strong><a href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
+            {% else %}
+                <p> No Maintenance Plan For: {{ eq.description }}.</p>
+                <a class="link-primary" href="{% url 'create-mp'  eq.id %}">Create Maintenance Plan</a>
+            {% endif %}
+
         </td>
     </tr>
 </table>
