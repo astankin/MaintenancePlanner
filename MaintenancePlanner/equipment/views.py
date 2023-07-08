@@ -72,7 +72,7 @@ def search_equipment(request):
     if request.method == "POST":
         number = request.POST['number']
         try:
-            equipment = Equipment.objects.get(pk=number)
+            equipment = Equipment.objects.filter(pk=number)
         except:
             return render(request, 'exception.html')
 
