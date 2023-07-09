@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views.generic import DetailView, ListView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, ListView, UpdateView, DeleteView
 
 from MaintenancePlanner.equipment.models import Equipment
 from MaintenancePlanner.maintenance_plan.forms import CreateMaintenancePlanForm, CreateOperationForm, \
@@ -45,6 +45,10 @@ def mp_details(request, pk):
     }
     return render(request, 'mp/maintenance-plan.html', context)
 
+
+class DeleteMP(LoginRequiredMixin, DeleteView):
+    model = MaintenancePlanModel
+    success_url = reverse_lazy('equipment-list')
 
 @login_required
 def create_operation(request, pk):
