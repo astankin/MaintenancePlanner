@@ -6,7 +6,6 @@ from MaintenancePlanner.plant.forms import DepartmentCreateForm, PlantCreateForm
 from MaintenancePlanner.plant.models import Plant, Department
 
 
-# Create your views here.
 class PlantCreateView(LoginRequiredMixin, CreateView):
     template_name = 'plant/create-plant.html'
     model = Plant

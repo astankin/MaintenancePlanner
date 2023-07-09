@@ -8,6 +8,10 @@ class CreateMaintenancePlanForm(forms.ModelForm):
         model = MaintenancePlanModel
         exclude = ('equipment',)
 
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
 
 class CreateOperationForm(forms.ModelForm):
     class Meta:

@@ -1,30 +1,25 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views.generic import ListView, UpdateView, DeleteView, CreateView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView, UpdateView, DeleteView
 
-from MaintenancePlanner.maintenance_plan.models import Operation
+from MaintenancePlanner.maintenance_plan.models import Operation, MaintenancePlanModel
 from MaintenancePlanner.task.forms import CreateTaskForm, UpdateTaskForm
 from MaintenancePlanner.task.models import Task
 
 
-# Create your views here.
-# class CreateTask(LoginRequiredMixin, CreateView):
-#     model = Task
-#     template_name = 'create-task.html'
-#     form_class = CreateTaskForm
-#     success_url = reverse_lazy('task-list')
-
-
+@login_required
 def create_task(request, pk):
     operation = Operation.objects.get(pk=pk)
+    mp = operation.maintenance_plan
     if request.method == 'POST':
         form = CreateTaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.equipment = operation.maintenance_plan.equipment
             task.save()
-            return redirect('home-page')
+            return redirect(reverse('mp-details', kwargs={'pk': mp.id}))
     else:
         form = CreateTaskForm(instance=operation)
     context = {
@@ -32,7 +27,6 @@ def create_task(request, pk):
         'operation': operation,
     }
     return render(request, 'create-task.html', context)
-
 
 
 class TaskList(LoginRequiredMixin, ListView):
@@ -56,5 +50,5 @@ class UpdateTask(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('task-list')
 
 
-class DeleteTask(DeleteView):
+class DeleteTask(LoginRequiredMixin, DeleteView):
     model = Task

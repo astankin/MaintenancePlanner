@@ -2,7 +2,7 @@ from django import forms
 from MaintenancePlanner.equipment.models import Equipment
 
 
-class EquipmentCreateForm(forms.ModelForm):
+class EquipmentForm(forms.ModelForm):
     class Meta:
         model = Equipment
         exclude = ('last_checked_date', 'next_check_date')
@@ -21,7 +21,5 @@ class EquipmentCreateForm(forms.ModelForm):
             'department': forms.Select(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'year_of_manufacture': forms.NumberInput(attrs={'class': 'form-control'}),
-            # 'last_checked_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            # 'next_check_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
 
         }

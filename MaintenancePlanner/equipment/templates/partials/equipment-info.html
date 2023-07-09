@@ -1,83 +1,87 @@
 <table class="table table-hover">
     <tr>
-        <td>Type:</td>
-        <td><strong>{{ eq.type }}</strong></td>
-    </tr>
-    <tr>
         <td>
-            Manufacturer:
-        </td>
+            <strong>Type:</strong></td>
         <td>
-            <strong>{{ eq.manufacturer|default_if_none:'' }}</strong>
+            {{ eq.type }}
         </td>
     </tr>
     <tr>
         <td>
-            Model Number:
+            <strong>Manufacturer:</strong>
         </td>
         <td>
-            <strong>{{ eq.model_number|default_if_none:'' }}</strong>
+            {{ eq.manufacturer|default_if_none:'' }}
         </td>
     </tr>
     <tr>
         <td>
-            Year of Manufacture:
+            <strong>Model Number:</strong>
         </td>
         <td>
-            <strong>{{ eq.year_of_manufacture|default_if_none:'' }}</strong>
+            {{ eq.model_number|default_if_none:'' }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Year of Manufacture:</strong>
+        </td>
+        <td>
+            {{ eq.year_of_manufacture|default_if_none:'' }}
         </td>
 
     </tr>
     <tr>
         <td>
-            Serial Number:
+            <strong>Serial Number:</strong>
         </td>
         <td>
-            <strong>{{ eq.serial_number|default_if_none:'' }}</strong>
+            {{ eq.serial_number|default_if_none:'' }}
         </td>
     </tr>
 
     <tr>
         <td>
-            Part Number:
+            <strong>Part Number:</strong>
         </td>
         <td>
-            <strong>{{ eq.part_number|default_if_none:'' }}</strong>
-        </td>
-
-    </tr>
-    <tr>
-        <td>
-            Department:
-        </td>
-        <td>
-            <strong>{{ eq.department }}</strong>
+            {{ eq.part_number|default_if_none:'' }}
         </td>
 
     </tr>
     <tr>
         <td>
-            Acquisition Date:
+            <strong>Department:</strong>
         </td>
         <td>
-            <strong>{{ eq.acquisition_date|default_if_none:'' }}</strong>
+            {{ eq.department }}
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            <strong>Acquisition Date:</strong>
+        </td>
+        <td>
+            {{ eq.acquisition_date|default_if_none:'' }}
         </td>
     </tr>
     <tr>
         <td>
-            Acquisition Value:
+            <strong>Acquisition Value:</strong>
         </td>
         <td>
-            <strong>{{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}</strong>
+            {{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}
         </td>
     </tr>
     <tr>
         <td>
-            Maintenance Plan:
+            <strong>Maintenance Plan:</strong>
         </td>
         <td>
             {% if eq.maintenanceplanmodel %}
-                <strong><a href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
+                <strong><a
+                        href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
             {% else %}
                 <p> No Maintenance Plan For: {{ eq.description }}.</p>
                 <a class="link-primary" href="{% url 'create-mp'  eq.id %}">Create Maintenance Plan</a>

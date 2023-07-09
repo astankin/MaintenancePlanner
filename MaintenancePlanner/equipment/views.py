@@ -1,14 +1,13 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView
 
 from MaintenancePlanner.accounts.models import AppUser
-from MaintenancePlanner.equipment.forms import EquipmentCreateForm
+from MaintenancePlanner.equipment.forms import EquipmentForm
 from MaintenancePlanner.equipment.models import Equipment
-
-
-# from MaintenancePlanner.profile.models import ProfileModel
 
 
 # Create your views here.
@@ -29,35 +28,18 @@ def view_equipment(request, pk):
     return HttpResponseRedirect(reverse('home-page'))
 
 
-@login_required()
-def create_equipment(request):
-    if request.method == 'POST':
-        form = EquipmentCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('equipment-list')
-    else:
-        form = EquipmentCreateForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'create-equipment.html', context)
+class CreateEquipment(LoginRequiredMixin, CreateView):
+    model = Equipment
+    template_name = 'create-equipment.html'
+    form_class = EquipmentForm
+    success_url = reverse_lazy('equipment-list')
 
 
-@login_required()
-def edit_equipment(request, pk):
-    equipment = Equipment.objects.get(pk=pk)
-    if request.method == 'POST':
-        form = EquipmentCreateForm(request.POST, instance=equipment)
-        if form.is_valid():
-            form.save()
-            return redirect('equipment-list')
-    else:
-        form = EquipmentCreateForm(instance=equipment)
-    context = {
-        'form': form
-    }
-    return render(request, 'edit-equipment.html', context)
+class UpdateEquipment(LoginRequiredMixin, UpdateView):
+    model = Equipment
+    template_name = 'edit-equipment.html'
+    form_class = EquipmentForm
+    success_url = reverse_lazy('equipment-list')
 
 
 @login_required()

@@ -24,6 +24,10 @@ class AppUser(AbstractUser):
     )
     email = models.EmailField(unique=True)
 
+    @property
+    def ful_name(self):
+        return f'{self.first_name} {self.last_name}'
+
 
 class Profile(models.Model):
     user = models.OneToOneField(AppUser, on_delete=models.CASCADE)

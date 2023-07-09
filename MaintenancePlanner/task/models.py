@@ -1,12 +1,13 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-from MaintenancePlanner.accounts.models import AppUser
 from MaintenancePlanner.equipment.models import Equipment
 
+UserModel = get_user_model()
 
-# Create your models here.
+
 class Task(models.Model):
-    technician = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+    technician = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     equipment = models.ForeignKey(
         to=Equipment,
         on_delete=models.CASCADE,
