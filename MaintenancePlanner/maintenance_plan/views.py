@@ -2,14 +2,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, UpdateView
 
 from MaintenancePlanner.equipment.models import Equipment
-from MaintenancePlanner.maintenance_plan.forms import CreateMaintenancePlanForm, CreateOperationForm
+from MaintenancePlanner.maintenance_plan.forms import CreateMaintenancePlanForm, CreateOperationForm, \
+    UpdateOperationForm
 from MaintenancePlanner.maintenance_plan.models import MaintenancePlanModel, Operation
 
 
 # Create your views here.
+class ListMp(LoginRequiredMixin, ListView):
+    model = MaintenancePlanModel
+    template_name = 'mp/mp-list.html'
+
+
 @login_required
 def create_mp(request, pk):
     equipment = Equipment.objects.get(pk=pk)
@@ -61,6 +67,17 @@ def create_operation(request, pk):
     return render(request, 'operation/create-operation.html', context)
 
 
+class UpdateOperation(LoginRequiredMixin, UpdateView):
+    model = Operation
+    form_class = UpdateOperationForm
+    template_name = 'operation/update-operation.html'
+
+    def get_success_url(self):
+        return reverse('mp-details', kwargs={
+            'pk': self.object.maintenance_plan.pk
+        })
+
+
 class OperationDetail(LoginRequiredMixin, DetailView):
     model = Operation
     template_name = 'operation/operation-details.html'
@@ -73,8 +90,3 @@ def delete_operation(request, pk):
     if request.method == 'POST':
         operation.delete()
         return redirect(reverse('mp-details', kwargs={'pk': mp.id}))
-
-
-class ListMp(LoginRequiredMixin, ListView):
-    model = MaintenancePlanModel
-    template_name = 'mp/mp-list.html'

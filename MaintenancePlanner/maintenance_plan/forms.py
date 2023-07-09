@@ -25,4 +25,5 @@ class CreateOperationForm(forms.ModelForm):
         }
 
 
-
+class UpdateOperationForm(CreateOperationForm):
+    pass

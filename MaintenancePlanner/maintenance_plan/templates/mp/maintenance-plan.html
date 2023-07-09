@@ -31,7 +31,7 @@
                                     <!-- Modal - View Equipment -->
                                     {% include 'operation/operation-details.html' %}
 
-                                    <a class="btn btn-warning" href="#">
+                                    <a class="btn btn-warning" href="{% url 'operation-update' operation.id %}">
                                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                                     </a>
 
