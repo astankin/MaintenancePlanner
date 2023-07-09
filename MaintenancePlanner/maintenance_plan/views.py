@@ -25,7 +25,7 @@ def create_mp(request, pk):
             mp = form.save(commit=False)
             mp.equipment = equipment
             mp.save()
-            return redirect('home-page')
+            return redirect(reverse('mp-details', kwargs={'pk': mp.id}))
     else:
         form = CreateMaintenancePlanForm()
     context = {
