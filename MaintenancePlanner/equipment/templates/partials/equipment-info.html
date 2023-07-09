@@ -71,7 +71,9 @@
             <strong>Acquisition Value:</strong>
         </td>
         <td>
-            {{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}
+            {% if eq.acquisition_value %}
+                {{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}
+            {% endif %}
         </td>
     </tr>
     <tr>
@@ -83,7 +85,7 @@
                 <strong><a
                         href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
             {% else %}
-                <p> No Maintenance Plan For: {{ eq.description }}.</p>
+                <p>No Maintenance Plan</p>
                 <a class="link-primary" href="{% url 'create-mp'  eq.id %}">Create Maintenance Plan</a>
             {% endif %}
 
