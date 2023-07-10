@@ -16,7 +16,7 @@ class CreateTaskForm(forms.ModelForm):
         }
 
 
-class UpdateTaskForm(forms.ModelForm):
+class UserUpdateTaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ('complete',)
@@ -28,4 +28,17 @@ class UpdateTaskForm(forms.ModelForm):
                 'id': 'flexCheckDefault',
             }),
 
+        }
+
+
+class UpdateTaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'technician', 'equipment', 'description']
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'technician': forms.Select(attrs={'class': 'form-control'}),
+            'equipment': forms.Select(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
         }

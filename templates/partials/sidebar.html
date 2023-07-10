@@ -2,7 +2,7 @@
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar card bg-light ms-2 me-2 mb-2 mt-0">
     <div class="position-sticky">
         <div class="list-group list-group-flush mx-0 mt-0">
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+            <a href="{% url 'user-task-list' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                 <i class="fas fa-tachometer-alt fa-fw me-2"></i><span>Main dashboard</span>
             </a>
             <a href="{% url 'create-plant' %}" class="list-group-item list-group-item-action py-2 ripple">
@@ -17,10 +17,8 @@
             <a href="{% url 'equipment-list' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-list fa-fw me-2"></i><span>List of equipment</span>
             </a>
-{#            <a href="{% url 'create-task' %}" class="list-group-item list-group-item-action py-2 ripple">#}
-{#                <i class="fa-regular fa-square-plus me-2"></i><span>Create Task</span>#}
-{#            </a>#}
-            <a href="{% url 'task-list' %}" class="list-group-item list-group-item-action py-2 ripple">
+            <!--For admin user -->
+            <a href="{% url 'all-tasks' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-list fa-fw me-2"></i><span>Task List</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action py-2 ripple">

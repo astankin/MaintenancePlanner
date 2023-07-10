@@ -5,7 +5,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, UpdateView, DeleteView
 
 from MaintenancePlanner.maintenance_plan.models import Operation, MaintenancePlanModel
-from MaintenancePlanner.task.forms import CreateTaskForm, UpdateTaskForm
+from MaintenancePlanner.task.forms import CreateTaskForm, UserUpdateTaskForm, UpdateTaskForm
 from MaintenancePlanner.task.models import Task
 
 
@@ -29,10 +29,10 @@ def create_task(request, pk):
     return render(request, 'create-task.html', context)
 
 
-class TaskList(LoginRequiredMixin, ListView):
+class UserTaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
-    template_name = 'task-list.html'
+    template_name = 'user-task-list.html'
 
     ordering = ['equipment']
 
@@ -43,12 +43,26 @@ class TaskList(LoginRequiredMixin, ListView):
         return context
 
 
+class UserUpdateTask(LoginRequiredMixin, UpdateView):
+    template_name = 'user-update-task.html'
+    model = Task
+    form_class = UserUpdateTaskForm
+    success_url = reverse_lazy('user-task-list')
+
+
 class UpdateTask(LoginRequiredMixin, UpdateView):
     template_name = 'update-task.html'
     model = Task
     form_class = UpdateTaskForm
-    success_url = reverse_lazy('task-list')
+    success_url = reverse_lazy('all-tasks')
 
 
 class DeleteTask(LoginRequiredMixin, DeleteView):
     model = Task
+
+
+class AllTasksList(LoginRequiredMixin, ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'all-tasks.html'
+    ordering = ['equipment', 'technician']
