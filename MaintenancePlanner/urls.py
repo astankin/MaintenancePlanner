@@ -11,4 +11,5 @@ urlpatterns = [
     path('plant/', include('MaintenancePlanner.plant.urls')),
     path('mp/', include('MaintenancePlanner.maintenance_plan.urls')),
     path('task/', include('MaintenancePlanner.task.urls')),
+    path('service-history/', include('MaintenancePlanner.service_history.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

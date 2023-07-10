@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+    <article>
+        {% if reports %}
+            <div class="card bg-light ms-1 me-4 mb-4 mt-0">
+                <div class="card-header">
+                    <i class="fa-solid fa-clipboard-list fa-lg me-2"></i>
+                    <strong>Report</strong>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">Equipment</th>
+                                <th scope="col">Created on</th>
+                                <th scope="col">Problem description</th>
+                                <th scope="col">Solution</th>
+                                <th scope="col">Done by</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for report in  reports %}
+                                <tr>
+                                    <td>
+                                        {{ report.equipment }}
+
+                                    </td>
+                                    <td>
+                                        {{ report.created_on }}
+
+                                    </td>
+                                    <td>
+                                        <a class="link-primary" href="#">
+                                            {{ report.problem_description|truncatechars:50 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ report.solution|truncatechars:50 }}</td>
+                                    <td>{{ report.technician }}</td>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        {% else %}
+            <!-- If no any task in the record -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h5 class="alert alert-primary ms-4 me-4">No service history in the record </h5>
+                </div>
+            </div>
+        {% endif %}
+    </article>
+{% endblock %}

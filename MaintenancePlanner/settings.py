@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'MaintenancePlanner.plant',
     'MaintenancePlanner.maintenance_plan',
     'MaintenancePlanner.task',
+    'MaintenancePlanner.service_history',
 
 
     'crispy_forms',
