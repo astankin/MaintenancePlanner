@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
 from MaintenancePlanner.accounts.models import Profile
 
@@ -16,3 +17,4 @@ class UserModelAdmin(ModelAdmin):
 @admin.register(Profile)
 class ProfileModelAdmin(ModelAdmin):
     pass
+

@@ -1,14 +1,18 @@
-<table class="table table-hover">
+<table class="table table-hover table-borderless">
     <tr>
-        <td>First Name:</td>
-        <td><strong>{{ user.first_name }}</strong></td>
+        <td>Username:</td>
+        <td><strong>{{ user.username }}</strong></td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td><strong>{{ user.full_name }}</strong></td>
     </tr>
     <tr>
         <td>
-            Last Name:
+            Role:
         </td>
         <td>
-            <strong>{{ user.last_name}}</strong>
+            <strong>{{ user.role }}</strong>
         </td>
     </tr>
     <tr>

@@ -2,9 +2,17 @@
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar card bg-light ms-2 me-2 mb-2 mt-0">
     <div class="position-sticky">
         <div class="list-group list-group-flush mx-0 mt-0">
-            <a href="{% url 'user-task-list' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                <i class="fas fa-tachometer-alt fa-fw me-2"></i><span>Main dashboard</span>
-            </a>
+            {% if request.user.role == 'MANAGER' %}
+                <a class="list-group-item list-group-item-action py-2 ripple" href="{% url 'register' %}">
+                    <i class="fa-regular fa-address-card fa-lg me-2"></i>
+                    Create User
+                </a>
+            {% else %}
+                <a href="{% url 'user-task-list' %}" class="list-group-item list-group-item-action py-2 ripple"
+                   aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-2"></i><span>Main dashboard</span>
+                </a>
+            {% endif %}
             <a href="{% url 'create-plant' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-industry me-2"></i><span>Create Plant</span>
             </a>
@@ -27,21 +35,17 @@
             <a href="{% url 'create-service-report' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-wrench la-lg me-2"></i><span>Create Service Report</span>
             </a>
-{#            <a href="{% url 'service-history' %}" class="list-group-item list-group-item-action py-2 ripple">#}
-{#                <i class="fa-solid fa-gears la-lg me-2"></i><span>Service History</span>#}
-{#            </a>#}
             <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-ruler me-2"></i><span>Measuring tools</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-screwdriver-wrench me-2"></i><span>Hand tools</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a
-            >
-            <a href="{% url 'users-list' %}" class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
-            >
+            {% if request.user.role == 'MANAGER' %}
+            <a href="{% url 'users-list' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fas fa-users fa-fw me-3"></i><span>Users</span>
+            </a>
+            {% endif %}
         </div>
     </div>
 </nav>

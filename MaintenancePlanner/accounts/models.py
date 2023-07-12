@@ -1,4 +1,5 @@
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import User, AbstractUser, PermissionsMixin
 from django.core.validators import MinLengthValidator
 from django.db import models
 from PIL import Image
@@ -7,7 +8,7 @@ from MaintenancePlanner.accounts.validators import user_name_validator
 
 
 # Create your models here.
-class AppUser(AbstractUser):
+class AppUser(AbstractUser, PermissionsMixin):
     first_name = models.CharField(
         max_length=30,
         validators=[
@@ -24,8 +25,15 @@ class AppUser(AbstractUser):
     )
     email = models.EmailField(unique=True)
 
+    class Role(models.TextChoices):
+        MANAGER = "MANAGER", 'Manager'
+        SUPERVISOR = "SUPERVISOR", 'Supervisor'
+        OPERATOR = "OPERATOR", 'Operator'
+
+    role = models.CharField(max_length=50, choices=Role.choices)
+
     @property
-    def ful_name(self):
+    def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
 
@@ -50,3 +58,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+
+

@@ -40,17 +40,14 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">
-                                                        @{{ user.username }}
-                                                        <div>
-                                                            <img src="{{ user.profile.image.url }}" height="100"
-                                                                 loading="lazy"/>
-                                                        </div>
-                                                    </h5>
-                                                    <button type="button" class="btn-close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"></span>
-                                                    </button>
+
+                                                    <img class="rounded rounded mx-auto d-block" src="{{ user.profile.image.url }}"
+                                                         height="180"
+                                                         loading="lazy"/>
+
+
+                                                    <div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-body">
                                                     {% include 'partials/user-info.html' %}

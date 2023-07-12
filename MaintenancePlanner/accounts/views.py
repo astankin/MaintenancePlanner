@@ -5,23 +5,24 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView
+from django.views.generic import ListView, DeleteView, TemplateView
 
-from MaintenancePlanner.accounts.decorators import unauthenticated_user
+from MaintenancePlanner.accounts.decorators import unauthenticated_user, allowed_users
 from MaintenancePlanner.accounts.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.accounts.models import AppUser
 
 
-@unauthenticated_user
+@allowed_users(allowed_roles=['MANAGER'])
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            # username = form.cleaned_data.get('username')
-            # messages.success(request, f'Account created for {username}! Please Login!')
-            return redirect('home-page')
+            # login(request, user)
+            username = form.cleaned_data.get('username')
+            # messages.success(request, f'Account created for {username}!')
+            return render(request, 'success-register.html', {'username': username})
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
@@ -74,7 +75,8 @@ def profile_update(request):
     return render(request, 'profile/profile-update.html', context)
 
 
-class ListUsers(LoginRequiredMixin, ListView):
+class ListUsers(LoginRequiredMixin, AllowedUsersMixin, ListView):
+    allowed_roles = ['MANAGER']
     model = AppUser
     template_name = 'users-list.html'
     context_object_name = 'users'
@@ -84,3 +86,5 @@ class DeleteUser(LoginRequiredMixin, DeleteView):
     model = AppUser
     context_object_name = 'users'
     success_url = reverse_lazy('users-list')
+
+
