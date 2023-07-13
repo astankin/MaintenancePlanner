@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added full CRUD functionality for plant model">
-      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/partials/modal-profile-info.html" afterDir="false" />
+    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Update front end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile-update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/users-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/users-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/equipment/templates/partials/equipment.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/equipment/templates/partials/equipment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/equipment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/equipment/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/equipment/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/equipment/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/plant/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/plant/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/plant/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/plant/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +109,7 @@
       <workItem from="1688969270121" duration="3887000" />
       <workItem from="1689001775246" duration="26116000" />
       <workItem from="1689174215874" duration="11297000" />
-      <workItem from="1689227367593" duration="14059000" />
+      <workItem from="1689227367593" duration="15952000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -253,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689238408347</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Update front end">
+      <created>1689245500665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689245500665</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +269,7 @@
     <MESSAGE value="Added service history model" />
     <MESSAGE value="Update" />
     <MESSAGE value="Added full CRUD functionality for plant model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added full CRUD functionality for plant model" />
+    <MESSAGE value="Update front end" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update front end" />
   </component>
 </project>
