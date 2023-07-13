@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'MaintenancePlanner.maintenance_plan',
     'MaintenancePlanner.task',
     'MaintenancePlanner.service_history',
+    'MaintenancePlanner.plant.templatetags',
 
 
     'crispy_forms',

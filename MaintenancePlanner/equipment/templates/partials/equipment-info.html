@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover table-borderless">
     <tr>
         <td>
             <strong>Type:</strong></td>
@@ -11,7 +11,7 @@
             <strong>Manufacturer:</strong>
         </td>
         <td>
-            {{ eq.manufacturer|default_if_none:'' }}
+            {{ eq.manufacturer|default_if_none:'No data' }}
         </td>
     </tr>
     <tr>
@@ -19,7 +19,7 @@
             <strong>Model Number:</strong>
         </td>
         <td>
-            {{ eq.model_number|default_if_none:'' }}
+            {{ eq.model_number|default_if_none:'No data' }}
         </td>
     </tr>
     <tr>
@@ -27,7 +27,7 @@
             <strong>Year of Manufacture:</strong>
         </td>
         <td>
-            {{ eq.year_of_manufacture|default_if_none:'' }}
+            {{ eq.year_of_manufacture|default_if_none:'No data' }}
         </td>
 
     </tr>
@@ -36,7 +36,7 @@
             <strong>Serial Number:</strong>
         </td>
         <td>
-            {{ eq.serial_number|default_if_none:'' }}
+            {{ eq.serial_number|default_if_none:'No data' }}
         </td>
     </tr>
 
@@ -45,7 +45,7 @@
             <strong>Part Number:</strong>
         </td>
         <td>
-            {{ eq.part_number|default_if_none:'' }}
+            {{ eq.part_number|default_if_none:'No data' }}
         </td>
 
     </tr>
@@ -63,7 +63,7 @@
             <strong>Acquisition Date:</strong>
         </td>
         <td>
-            {{ eq.acquisition_date|default_if_none:'' }}
+            {{ eq.acquisition_date|default_if_none:'No data' }}
         </td>
     </tr>
     <tr>
@@ -73,6 +73,8 @@
         <td>
             {% if eq.acquisition_value %}
                 {{ eq.acquisition_value|floatformat:2 }} {{ eq.currency_code }}
+                {% else %}
+                No data
             {% endif %}
         </td>
     </tr>
@@ -86,7 +88,7 @@
                         href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
             {% else %}
                 <p>No Maintenance Plan</p>
-                <a class="link-primary" href="{% url 'create-mp'  eq.id %}">Create Maintenance Plan</a>
+                <a class="link-primary" href="{% url 'create-mp' eq.id %}">Create Maintenance Plan</a>
             {% endif %}
 
         </td>

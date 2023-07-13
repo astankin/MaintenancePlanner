@@ -15,8 +15,6 @@
                             <th scope="col">Description</th>
                             <th scope="col">Type</th>
                             <th scope="col">Department</th>
-                            <th scope="col">Last Check</th>
-                            <th scope="col">Next Check</th>
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
@@ -27,8 +25,6 @@
                                 <td>{{ eq.description }}</td>
                                 <td>{{ eq.type }}</td>
                                 <td>{{ eq.department }}</td>
-                                <td>{{ eq.last_checked_date|default_if_none:'' }}</td>
-                                <td>{{ eq.next_check_date|default_if_none:'' }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success me-1"
                                             href="{% url 'view-equipment' eq.id %}" data-bs-toggle="modal"
