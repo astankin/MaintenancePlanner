@@ -13,6 +13,7 @@ from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.accounts.models import AppUser
 
 
+@login_required
 @allowed_users(allowed_roles=['MANAGER'])
 def register(request):
     if request.method == 'POST':
@@ -86,5 +87,3 @@ class DeleteUser(LoginRequiredMixin, DeleteView):
     model = AppUser
     context_object_name = 'users'
     success_url = reverse_lazy('users-list')
-
-

@@ -16,6 +16,7 @@
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Role</th>
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
@@ -27,6 +28,7 @@
                                 <td>{{ user.first_name }}</td>
                                 <td>{{ user.last_name }}</td>
                                 <td>{{ user.email }}</td>
+                                <td>{{ user.role }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success me-1"
                                             href="#" data-bs-toggle="modal"
@@ -34,32 +36,8 @@
                                         <i class="fa-solid fa-circle-info fa-lg"></i>
                                     </button>
 
-                                    <!-- Modal - View Equipment -->
-                                    <div class="modal" id="myModal{{ user.id }}" tabindex="-1"
-                                         aria-labelledby="myModalLabel1" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-
-                                                    <img class="rounded rounded mx-auto d-block" src="{{ user.profile.image.url }}"
-                                                         height="180"
-                                                         loading="lazy"/>
-
-
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body">
-                                                    {% include 'partials/user-info.html' %}
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Modal - View Profile -->
+                                    {% include 'partials/modal-profile-info.html' %}
 
                                     <button type="button" class="btn btn-danger me-1"
                                             href="#"
@@ -68,7 +46,7 @@
                                         <i class="fa-solid fa-trash-can fa-lg"></i>
                                     </button>
 
-                                    <!-- Modal - View Delete User -->
+                                    <!-- Modal - View Delete Profile -->
                                     {% include 'partials/modal-delete-user.html' %}
                                 </td>
                             </tr>

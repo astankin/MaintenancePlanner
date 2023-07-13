@@ -35,20 +35,21 @@
                                     <!-- Modal - View Equipment -->
                                     {% include 'partials/modal-info.html' %}
 
-                                    <a class="btn btn-warning" href="{% url 'edit-equipment' eq.id %}">
-                                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                                    </a>
+                                    {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
+                                        <a class="btn btn-warning" href="{% url 'edit-equipment' eq.id %}">
+                                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                        </a>
 
-                                    <button type="button" class="btn btn-danger me-1"
-                                            href="{% url 'delete-equipment' eq.id %}"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#myModal2{{ eq.id }}">
-                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                    </button>
+                                        <button type="button" class="btn btn-danger me-1"
+                                                href="{% url 'delete-equipment' eq.id %}"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#myModal2{{ eq.id }}">
+                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                        </button>
 
-                                    <!-- Modal - Delete Equipment -->
-                                    {% include 'partials/modal-delete.html' %}
-
+                                        <!-- Modal - Delete Equipment -->
+                                        {% include 'partials/modal-delete.html' %}
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}

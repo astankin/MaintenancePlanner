@@ -1,0 +1,25 @@
+<div class="modal" id="myModal{{ user.id }}" tabindex="-1"
+     aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <img class="rounded rounded mx-auto d-block" src="{{ user.profile.image.url }}"
+                     height="180"
+                     loading="lazy"/>
+
+
+                <div>
+                </div>
+            </div>
+            <div class="modal-body">
+                {% include 'partials/user-info.html' %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

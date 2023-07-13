@@ -1,33 +1,37 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 
+from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.plant.forms import DepartmentCreateForm, PlantCreateForm
 from MaintenancePlanner.plant.models import Plant, Department
 
 
-class PlantCreateView(LoginRequiredMixin, CreateView):
+class PlantCreateView(LoginRequiredMixin, AllowedUsersMixin, CreateView):
+    allowed_roles = ['MANAGER']
     template_name = 'plant/create-plant.html'
     model = Plant
     form_class = PlantCreateForm
     success_url = reverse_lazy('plants-list')
 
 
-class PlantUpdateView(LoginRequiredMixin, UpdateView):
+class PlantUpdateView(LoginRequiredMixin, AllowedUsersMixin, UpdateView):
+    allowed_roles = ['MANAGER']
     model = Plant
     template_name = 'plant/update-plant.html'
     success_url = reverse_lazy('plants-list')
     form_class = PlantCreateForm
 
 
-class PlantDeleteView(LoginRequiredMixin, DeleteView):
+class PlantDeleteView(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
+    allowed_roles = ['MANAGER']
     model = Plant
     success_url = reverse_lazy('plants-list')
     context_object_name = 'plant'
 
 
-class PlantListView(LoginRequiredMixin, ListView):
+class PlantListView(LoginRequiredMixin, AllowedUsersMixin, ListView):
+    allowed_roles = ['MANAGER']
     model = Plant
     template_name = 'plant/plant-list.html'
     context_object_name = 'plants'

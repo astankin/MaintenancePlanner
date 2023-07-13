@@ -3,8 +3,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 
+from MaintenancePlanner.accounts.decorators import allowed_users
+from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.accounts.models import AppUser
 from MaintenancePlanner.equipment.forms import EquipmentForm
 from MaintenancePlanner.equipment.models import Equipment
@@ -28,26 +30,26 @@ def view_equipment(request, pk):
     return HttpResponseRedirect(reverse('home-page'))
 
 
-class CreateEquipment(LoginRequiredMixin, CreateView):
+class CreateEquipment(LoginRequiredMixin, AllowedUsersMixin, CreateView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = Equipment
     template_name = 'create-equipment.html'
     form_class = EquipmentForm
     success_url = reverse_lazy('equipment-list')
 
 
-class UpdateEquipment(LoginRequiredMixin, UpdateView):
+class UpdateEquipment(LoginRequiredMixin, AllowedUsersMixin, UpdateView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = Equipment
     template_name = 'edit-equipment.html'
     form_class = EquipmentForm
     success_url = reverse_lazy('equipment-list')
 
 
-@login_required()
-def delete_equipment(request, pk):
-    equipment = Equipment.objects.get(pk=pk)
-    if request.method == 'POST':
-        equipment.delete()
-        return redirect('equipment-list')
+class DeleteEquipment(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
+    model = Equipment
+    success_url = reverse_lazy('equipment-list')
 
 
 def search_equipment(request):
