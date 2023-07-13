@@ -78,16 +78,6 @@ class Equipment(models.Model):
     department = models.ForeignKey(
         to=Department,
         on_delete=models.CASCADE)
-    last_checked_date = models.DateField(
-        verbose_name='Last Checked Date',
-        blank=True,
-        null=True,
-    )
-    next_check_date = models.DateField(
-        verbose_name='Next Check Date',
-        blank=True,
-        null=True,
-    )
 
     def __str__(self):
         return self.description

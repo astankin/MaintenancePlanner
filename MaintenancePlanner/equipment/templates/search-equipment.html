@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if number %}
-  {% include 'partials/equipment.html'%}
-  {% else %}
-  <div class="text-center">
-  <h5 class="alert alert-danger m-4">Please fill in the search field!</h5>
-  </div>
-  {% endif %}
+
+    {#    {% if number %}#}
+    {#  {% include 'partials/equipment.html'%}#}
+    {#  {% else %}#}
+    {#  <div class="text-center">#}
+    {#  <h5 class="alert alert-danger m-4">Please fill in the search field!</h5>#}
+    {#  </div>#}
+    <article>
+    <div class= "bg-light ms-1 me-4 mb-4 mt-0">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card bg-light mb-3" style="max-width: 200rem;">
+                    <div class="card-header">
+                        <i class="fa-solid fa-magnifying-glass fa-lg me-2"></i> Advanced Search
+                    </div>
+                    <div class="card-body">
+                        <form method="GET">
+                            {% csrf_token %}
+                            {{ eq_filter.form.as_p }}
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </article>
+    {% include 'partials/equipment.html' %}
 {% endblock %}

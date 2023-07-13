@@ -8,6 +8,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from MaintenancePlanner.accounts.decorators import allowed_users
 from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.accounts.models import AppUser
+from MaintenancePlanner.equipment.filters import EquipmentFilter
 from MaintenancePlanner.equipment.forms import EquipmentForm
 from MaintenancePlanner.equipment.models import Equipment
 
@@ -52,18 +53,28 @@ class DeleteEquipment(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
     success_url = reverse_lazy('equipment-list')
 
 
-def search_equipment(request):
-    if request.method == "POST":
-        number = request.POST['number']
-        try:
-            equipment = Equipment.objects.filter(pk=number)
-        except:
-            return render(request, 'exception.html')
+# def search_equipment(request):
+#     if request.method == "POST":
+#         number = request.POST['number']
+#         try:
+#             equipment = Equipment.objects.filter(pk=number)
+#         except:
+#             return render(request, 'exception.html')
+#
+#         context = {
+#             'number': number,
+#             'equipment': equipment
+#         }
+#         return render(request, 'search-equipment.html', context)
+#     else:
+#         return render(request, 'search-equipment.html', {})
 
-        context = {
-            'number': number,
-            'equipment': equipment
-        }
-        return render(request, 'search-equipment.html', context)
-    else:
-        return render(request, 'search-equipment.html', {})
+def search_equipment(request):
+    equipment = Equipment.objects.all()
+    eq_filter = EquipmentFilter(request.GET, queryset=equipment)
+    equipment = eq_filter.qs
+    context = {
+        "eq_filter": eq_filter,
+        "equipment": equipment,
+    }
+    return render(request, 'search-equipment.html', context)

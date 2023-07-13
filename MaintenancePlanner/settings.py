@@ -36,10 +36,10 @@ INSTALLED_APPS = [
     'MaintenancePlanner.service_history',
     'MaintenancePlanner.plant.templatetags',
 
-
     'crispy_forms',
     'crispy_bootstrap5',
     'django_countries',
+    'django_filters',
 
 ]
 

@@ -55,10 +55,12 @@
                         {% endfor %}
                         </tbody>
                     </table>
-                    <a class="link-primary text-decoration-none" href="{% url 'create-equipment' %}">
+                    {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
+                        <a class="link-primary text-decoration-none" href="{% url 'create-equipment' %}">
                         <i class="fa-solid fa-plus fa-lg me-2"></i>
                         Add Equipment
                     </a>
+                    {% endif %}
                 </div>
                 </p>
             </div>

@@ -10,6 +10,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('profile/', views.profile, name='profile'),
     path('profile/update/', views.profile_update, name='profile-update'),
-    path('users-list/', ListUsers.as_view(), name='users-list'),
-    path('users-delete/<int:pk>/', DeleteUser.as_view(), name='delete-user'),
+    path('list/', ListUsers.as_view(), name='users-list'),
+    path('delete/<int:pk>/', DeleteUser.as_view(), name='delete-user'),
 ]

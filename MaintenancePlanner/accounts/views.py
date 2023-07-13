@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DeleteView, TemplateView
+from django.views.generic import ListView, DeleteView
 
 from MaintenancePlanner.accounts.decorators import unauthenticated_user, allowed_users
 from MaintenancePlanner.accounts.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
@@ -39,7 +39,6 @@ def login_user(request):
             form = login(request, user)
             return redirect('home-page')
         else:
-            pass
             messages.warning(
                 request,
                 'Please enter a correct username and password. Note that both fields may be case-sensitive.',
@@ -77,7 +76,7 @@ def profile_update(request):
 
 
 class ListUsers(LoginRequiredMixin, AllowedUsersMixin, ListView):
-    allowed_roles = ['MANAGER']
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = AppUser
     template_name = 'users-list.html'
     context_object_name = 'users'
