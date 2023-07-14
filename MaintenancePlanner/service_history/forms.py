@@ -13,3 +13,14 @@ class ServiceHistoryForm(forms.ModelForm):
             'problem_description': forms.Textarea(attrs={'class': 'form-control'}),
             'solution': forms.Textarea(attrs={'class': 'form-control'}),
         }
+
+
+class ServiceHistoryUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ServiceHistory
+        exclude = ('equipment', 'created_on', 'technician')
+
+        widgets = {
+            'problem_description': forms.Textarea(attrs={'class': 'form-control'}),
+            'solution': forms.Textarea(attrs={'class': 'form-control'}),
+        }

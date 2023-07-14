@@ -2,10 +2,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 
 from MaintenancePlanner.equipment.models import Equipment
-from MaintenancePlanner.service_history.forms import ServiceHistoryForm
+from MaintenancePlanner.service_history.forms import ServiceHistoryForm, ServiceHistoryUpdateForm
 from MaintenancePlanner.service_history.models import ServiceHistory
 
 
@@ -30,5 +30,17 @@ def service_history(request, pk):
     }
     return render(request, 'service-history.html', context)
 
-class ServiceHistoryDetailView(LoginRequiredMixin, DetailView):
-    pass
+
+class ReportDetailView(LoginRequiredMixin, DetailView):
+    model = ServiceHistory
+    template_name = 'service-history.html'
+
+
+class ReportUpdateView(LoginRequiredMixin, UpdateView):
+    model = ServiceHistory
+    template_name = 'update-report.html'
+    form_class = ServiceHistoryUpdateForm
+
+    def get_success_url(self):
+        equipment_id = self.object.equipment.id
+        return reverse_lazy('service-history', kwargs={'pk': equipment_id})
