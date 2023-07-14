@@ -49,4 +49,4 @@ class EquipmentFilter(django_filters.FilterSet):
 
     class Meta:
         model = Equipment
-        fields = ['id', 'description', 'type', 'manufacturer', 'plant', 'department']
+        fields = ['id', 'description', 'manufacturer',  'type', 'plant', 'department']

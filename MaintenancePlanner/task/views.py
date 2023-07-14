@@ -4,12 +4,15 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, UpdateView, DeleteView
 
+from MaintenancePlanner.accounts.decorators import allowed_users
+from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.maintenance_plan.models import Operation, MaintenancePlanModel
 from MaintenancePlanner.task.forms import CreateTaskForm, UserUpdateTaskForm, UpdateTaskForm
 from MaintenancePlanner.task.models import Task
 
 
 @login_required
+@allowed_users(allowed_roles=['MANAGER', 'SUPERVISOR'])
 def create_task(request, pk):
     operation = Operation.objects.get(pk=pk)
     mp = operation.maintenance_plan
@@ -30,6 +33,7 @@ def create_task(request, pk):
 
 
 class UserTaskList(LoginRequiredMixin, ListView):
+
     model = Task
     context_object_name = 'tasks'
     template_name = 'user-task-list.html'
@@ -50,18 +54,21 @@ class UserUpdateTask(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('user-task-list')
 
 
-class UpdateTask(LoginRequiredMixin, UpdateView):
+class UpdateTask(LoginRequiredMixin, AllowedUsersMixin, UpdateView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     template_name = 'update-task.html'
     model = Task
     form_class = UpdateTaskForm
     success_url = reverse_lazy('all-tasks')
 
 
-class DeleteTask(LoginRequiredMixin, DeleteView):
+class DeleteTask(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = Task
 
 
-class AllTasksList(LoginRequiredMixin, ListView):
+class AllTasksList(LoginRequiredMixin, AllowedUsersMixin, ListView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = Task
     context_object_name = 'tasks'
     template_name = 'all-tasks.html'

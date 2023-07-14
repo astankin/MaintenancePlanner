@@ -30,42 +30,45 @@
 
                                     <!-- Modal - View Operation -->
                                     {% include 'operation/operation-details.html' %}
+                                    {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
+                                        <a class="btn btn-warning" href="{% url 'operation-update' operation.id %}">
+                                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                        </a>
 
-                                    <a class="btn btn-warning" href="{% url 'operation-update' operation.id %}">
-                                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                                    </a>
 
-                                    <button type="button" class="btn btn-danger me-1"
-                                            href="#"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#myModal2{{ operation.id }}">
-                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                    </button>
+                                        <button type="button" class="btn btn-danger me-1"
+                                                href="#"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#myModal2{{ operation.id }}">
+                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                        </button>
 
-                                    <!-- Modal - Delete Equipment -->
-                                    {% include 'mp/../operation/partials/modal-delete-operation.html' %}
-
+                                        <!-- Modal - Delete Equipment -->
+                                        {% include 'mp/../operation/partials/modal-delete-operation.html' %}
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-between">
-                        <a class="link-primary text-decoration-none" href="{% url 'create-operation' mp.id %}">
-                            <i class="fa-solid fa-plus fa-lg me-2"></i>
-                            Add Operation
-                        </a>
-                        <button type="button" class="btn btn-danger me-1"
-                                href="#"
-                                data-bs-toggle="modal"
-                                data-bs-target="#myModal3{{ mp.id }}">
-                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                            Delete MP
-                        </button>
-                        <!-- Modal - Delete Maintenance Plan -->
-                        {% include 'mp/partials/modal-delete-mp.html' %}
+                    {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
+                        <div class="d-flex justify-content-between">
+                            <a class="link-primary text-decoration-none" href="{% url 'create-operation' mp.id %}">
+                                <i class="fa-solid fa-plus fa-lg me-2"></i>
+                                Add Operation
+                            </a>
+                            <button type="button" class="btn btn-danger me-1"
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#myModal3{{ mp.id }}">
+                                <i class="fa-solid fa-trash-can fa-lg"></i>
+                                Delete MP
+                            </button>
+                            <!-- Modal - Delete Maintenance Plan -->
+                            {% include 'mp/partials/modal-delete-mp.html' %}
 
-                    </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

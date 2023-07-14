@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, ListView, UpdateView, DeleteView
 
+from MaintenancePlanner.accounts.decorators import allowed_users
+from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.equipment.models import Equipment
 from MaintenancePlanner.maintenance_plan.forms import CreateMaintenancePlanForm, CreateOperationForm, \
     UpdateOperationForm
@@ -17,6 +19,7 @@ class ListMp(LoginRequiredMixin, ListView):
 
 
 @login_required
+@allowed_users(allowed_roles=['MANAGER', 'SUPERVISOR'])
 def create_mp(request, pk):
     equipment = Equipment.objects.get(pk=pk)
     if request.method == 'POST':
@@ -46,11 +49,14 @@ def mp_details(request, pk):
     return render(request, 'mp/maintenance-plan.html', context)
 
 
-class DeleteMP(LoginRequiredMixin, DeleteView):
+class DeleteMP(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = MaintenancePlanModel
     success_url = reverse_lazy('equipment-list')
 
+
 @login_required
+@allowed_users(allowed_roles=['MANAGER', 'SUPERVISOR'])
 def create_operation(request, pk):
     mp = MaintenancePlanModel.objects.get(pk=pk)
 
@@ -71,7 +77,8 @@ def create_operation(request, pk):
     return render(request, 'operation/create-operation.html', context)
 
 
-class UpdateOperation(LoginRequiredMixin, UpdateView):
+class UpdateOperation(LoginRequiredMixin, AllowedUsersMixin, UpdateView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
     model = Operation
     form_class = UpdateOperationForm
     template_name = 'operation/update-operation.html'
@@ -88,6 +95,7 @@ class OperationDetail(LoginRequiredMixin, DetailView):
 
 
 @login_required()
+@allowed_users(allowed_roles=['MANAGER', 'SUPERVISOR'])
 def delete_operation(request, pk):
     operation = Operation.objects.get(pk=pk)
     mp = operation.maintenance_plan

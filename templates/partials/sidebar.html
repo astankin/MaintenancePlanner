@@ -16,10 +16,10 @@
                 <a href="{% url 'plants-list' %}" class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fa-solid fa-industry me-2"></i><span>Plants</span>
                 </a>
-            {% else %}
+            {% elif request.user.role == 'OPERATOR' %}
                 <a href="{% url 'user-task-list' %}" class="list-group-item list-group-item-action py-2 ripple"
                    aria-current="true">
-                    <i class="fas fa-tachometer-alt fa-fw me-2"></i><span>Main dashboard</span>
+                    <i class="fas fa-tachometer-alt fa-fw me-2"></i><span>My Tasks</span>
                 </a>
             {% endif %}
             {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
@@ -33,11 +33,12 @@
             <a href="{% url 'equipment-list' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-list fa-fw me-2"></i><span>List of equipment</span>
             </a>
-            <!--For admin user -->
-            <a href="{% url 'all-tasks' %}" class="list-group-item list-group-item-action py-2 ripple">
-                <i class="fa-solid fa-clipboard-list fa-lg me-2"></i><span>Task List</span>
-            </a>
-            <a href="{% url 'search-equipment' %}" class="list-group-item list-group-item-action py-2 ripple">
+            {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
+                <a href="{% url 'all-tasks' %}" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fa-solid fa-clipboard-list fa-lg me-2"></i><span>Task List</span>
+                </a>
+            {% endif %}
+            <a href="{% url 'advanced-search-equipment' %}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fa-solid fa-magnifying-glass fa-lg me-2"></i><span>Search equipment</span>
             </a>
             <a href="{% url 'create-service-report' %}" class="list-group-item list-group-item-action py-2 ripple">

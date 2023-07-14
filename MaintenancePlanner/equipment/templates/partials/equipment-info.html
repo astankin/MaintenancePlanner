@@ -88,7 +88,9 @@
                         href="{% url 'mp-details' eq.maintenanceplanmodel.id %}">{{ eq.maintenanceplanmodel }}</a></strong>
             {% else %}
                 <p>No Maintenance Plan</p>
+                {% if request.user.role == 'MANAGER' or request.user.role == 'SUPERVISOR' %}
                 <a class="link-primary" href="{% url 'create-mp' eq.id %}">Create Maintenance Plan</a>
+                {% endif %}
             {% endif %}
 
         </td>

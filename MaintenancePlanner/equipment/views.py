@@ -53,23 +53,24 @@ class DeleteEquipment(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
     success_url = reverse_lazy('equipment-list')
 
 
-# def search_equipment(request):
-#     if request.method == "POST":
-#         number = request.POST['number']
-#         try:
-#             equipment = Equipment.objects.filter(pk=number)
-#         except:
-#             return render(request, 'exception.html')
-#
-#         context = {
-#             'number': number,
-#             'equipment': equipment
-#         }
-#         return render(request, 'search-equipment.html', context)
-#     else:
-#         return render(request, 'search-equipment.html', {})
-
 def search_equipment(request):
+    if request.method == "POST":
+        number = request.POST['number']
+        try:
+            equipment = Equipment.objects.filter(pk=number)
+        except:
+            return render(request, 'exception.html')
+
+        context = {
+            'number': number,
+            'equipment': equipment
+        }
+        return render(request, 'search-equipment.html', context)
+    else:
+        return render(request, 'search-equipment.html', {})
+
+
+def advanced_search_equipment(request):
     equipment = Equipment.objects.all()
     eq_filter = EquipmentFilter(request.GET, queryset=equipment)
     equipment = eq_filter.qs
@@ -77,4 +78,4 @@ def search_equipment(request):
         "eq_filter": eq_filter,
         "equipment": equipment,
     }
-    return render(request, 'search-equipment.html', context)
+    return render(request, 'advanced-search-equipment.html', context)
