@@ -38,6 +38,10 @@ class UserUpdateTaskForm(forms.ModelForm):
         model = Task
         fields = ('complete', )
 
+        labels = {
+            'complete': 'Mark as completed: '
+        }
+
         widgets = {
             'complete': forms.CheckboxInput(attrs={
                 'class': 'form-check-input',

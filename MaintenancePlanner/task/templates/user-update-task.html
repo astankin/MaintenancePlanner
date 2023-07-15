@@ -6,51 +6,57 @@
         <div class="col-8">
             <div class="card bg-light mb-3" style="max-width: 200rem;">
                 <div class="card-header">
-                    <h4>{{ task.title }}</h4>
+                    <h5>
+                        <i class="fa-solid fa-clipboard-check fa-lg me-2"></i>
+                        {{ task.title }}
+                    </h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover table-borderless">
-                    <tr>
-                        <td>
-                           <strong>Equipment:</strong>
-                        </td>
-                        <td>
-                            {{ task.equipment }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Description:</strong>
-                        </td>
-                        <td>
-                            {{ task.description }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Status:</strong>
-                        </td>
-                        <td>
-                            {% if task.complete %}
-                                Completed
-                            {% else %}
-                                Not Completed
-                            {% endif %}
-                        </td>
+                        <tr>
+                            <td>
+                                <strong>Equipment:</strong>
+                            </td>
+                            <td>
+                                {{ task.equipment }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Description:</strong>
+                            </td>
+                            <td>
+                                {{ task.description }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Status:</strong>
+                            </td>
+                            <td>
+                                {% if task.complete %}
+                                    Completed
+                                {% else %}
+                                    Uncompleted
+                                {% endif %}
+                            </td>
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Created:</strong>
-                        </td>
-                        <td>
-                            {{ task.created_on }}
-                        </td>
-                    </tr>
-                </table>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Created on:</strong>
+                            </td>
+                            <td>
+                                {{ task.created_on }}
+                            </td>
+                        </tr>
+                    </table>
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                      {{ form.as_p }}
+                        {% for field in form %}
+                            <label class="fw-bold me-2 mb-4" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                        {% endfor %}
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary ">Update</button>
                             <a href="{% url 'user-task-list' %}" class="btn btn-secondary">Cancel</a>

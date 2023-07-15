@@ -7,11 +7,11 @@
                     <i class="fa-solid fa-clipboard-list fa-lg me-2"></i>
                     {% if count > 0 %}
                         <span class="text-danger">
-                            <strong>You have {{ count }} incomplete task{{ count|pluralize:'s' }}</strong>
+                            <strong>You have {{ count }} uncompleted task{{ count|pluralize:'s' }}</strong>
                         </span>
                     {% else %}
                         <span class="text-success">
-                            <strong>You don't have any incomplete task</strong>
+                            <strong>You don't have any uncompleted task</strong>
                         </span>
                     {% endif %}
                 </div>
@@ -43,9 +43,9 @@
                                     <td>{{ task.description|truncatechars:50 }}</td>
                                     <td>{{ task.created_on }}</td>
                                     <td>{% if task.complete %}
-                                        <span class="text-success fw-bold">Complete</span>
+                                        <span class="text-success fw-bold">Completed</span>
                                     {% else %}
-                                        <span class="text-danger fw-bold">Incomplete</span>
+                                        <span class="text-danger fw-bold">Uncompleted</span>
                                     {% endif %}</td>
                                     <td>
                                         {% if task.complete %}
