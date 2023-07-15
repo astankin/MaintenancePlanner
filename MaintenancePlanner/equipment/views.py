@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 
 from MaintenancePlanner.accounts.decorators import allowed_users
 from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
@@ -13,16 +13,10 @@ from MaintenancePlanner.equipment.forms import EquipmentForm
 from MaintenancePlanner.equipment.models import Equipment
 
 
-# Create your views here.
-@login_required
-def equipment_list(request):
-    profile = AppUser.objects.first()
-    equipment = Equipment.objects.all()
-    context = {
-        'equipment': equipment,
-        'profile': profile,
-    }
-    return render(request, 'equipment_list.html', context)
+class EquipmentListView(LoginRequiredMixin, ListView):
+    model = Equipment
+    context_object_name = 'equipment'
+    template_name = 'equipment_list.html'
 
 
 @login_required()
