@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added full CRUD functionality to ServiceHistory">
+    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Updated Equipment List">
+      <change beforePath="$PROJECT_DIR$/.idea/MaintenancePlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MaintenancePlanner.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/templates/user-update-task.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/templates/user-update-task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +112,7 @@
       <workItem from="1689001775246" duration="26116000" />
       <workItem from="1689174215874" duration="11297000" />
       <workItem from="1689227367593" duration="32812000" />
+      <workItem from="1689406669504" duration="3617000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -278,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689340476334</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Updated Equipment List">
+      <created>1689408458654</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689408458654</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +310,7 @@
     <MESSAGE value="Update front end" />
     <MESSAGE value="Improved advanced search" />
     <MESSAGE value="Added full CRUD functionality to ServiceHistory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added full CRUD functionality to ServiceHistory" />
+    <MESSAGE value="Updated Equipment List" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Equipment List" />
   </component>
 </project>

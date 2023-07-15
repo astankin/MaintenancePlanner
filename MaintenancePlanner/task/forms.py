@@ -16,10 +16,27 @@ class CreateTaskForm(forms.ModelForm):
         }
 
 
+# class DisabledFormMixin:
+#     disabled_fields = ()
+#     fields = {}
+#
+#     def _disable_fields(self):
+#         if self.disabled_fields == '__all__':
+#             fields = self.fields.keys()
+#         else:
+#             fields = self.disabled_fields
+#
+#         for fields_name in fields:
+#             if fields_name in self.fields:
+#                 field = self.fields[fields_name]
+#                 field.widget.attr['disabled'] = 'disabled'
+#                 field.widget.attr['readonly'] = 'readonly'
+
+
 class UserUpdateTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('complete',)
+        fields = ('complete', )
 
         widgets = {
             'complete': forms.CheckboxInput(attrs={
