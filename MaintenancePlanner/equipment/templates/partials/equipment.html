@@ -15,7 +15,9 @@
                             <th scope="col">Description</th>
                             <th scope="col">Type</th>
                             <th scope="col">Department</th>
+                            <th scope="col">Service history</th>
                             <th scope="col">Actions</th>
+
                         </tr>
                         </thead>
                         <tbody class="text-center">
@@ -26,10 +28,12 @@
                                 <td>{{ eq.type }}</td>
                                 <td>{{ eq.department }}</td>
                                 <td>
-
                                     <a class="btn btn-primary" href="{% url 'service-history' eq.id %}">
                                         <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+                                        Service History
                                     </a>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-success me-1"
                                             href="{% url 'view-equipment' eq.id %}" data-bs-toggle="modal"
                                             data-bs-target="#myModal{{ eq.id }}">
