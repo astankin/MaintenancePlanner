@@ -3,6 +3,17 @@ from django import forms
 from MaintenancePlanner.maintenance_plan.models import MaintenancePlanModel, Operation
 
 
+class MaintenancePlanForm(forms.ModelForm):
+    class Meta:
+        model = MaintenancePlanModel
+        fields = '__all__'
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'equipment': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+
 class CreateMaintenancePlanForm(forms.ModelForm):
     class Meta:
         model = MaintenancePlanModel

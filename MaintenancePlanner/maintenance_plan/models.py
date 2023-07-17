@@ -13,13 +13,13 @@ class MaintenancePlanModel(models.Model):
         unique=True,
     )
 
-    def __str__(self):
-        return self.name
-
     equipment = models.OneToOneField(
         to=Equipment,
         on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return self.name
 
 
 class Operation(models.Model):

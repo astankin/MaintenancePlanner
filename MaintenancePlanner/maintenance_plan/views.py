@@ -2,13 +2,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import DetailView, ListView, UpdateView, DeleteView
+from django.views.generic import DetailView, ListView, UpdateView, DeleteView, CreateView
 
 from MaintenancePlanner.accounts.decorators import allowed_users
 from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
 from MaintenancePlanner.equipment.models import Equipment
 from MaintenancePlanner.maintenance_plan.forms import CreateMaintenancePlanForm, CreateOperationForm, \
-    UpdateOperationForm
+    UpdateOperationForm, MaintenancePlanForm
 from MaintenancePlanner.maintenance_plan.models import MaintenancePlanModel, Operation
 
 
@@ -36,6 +36,14 @@ def create_mp(request, pk):
         'equipment': equipment,
     }
     return render(request, 'mp/create-mp.html', context)
+
+
+class CreateMPView(LoginRequiredMixin, AllowedUsersMixin, CreateView):
+    allowed_roles = ['MANAGER', 'SUPERVISOR']
+    model = MaintenancePlanModel
+    form_class = MaintenancePlanForm
+    template_name = 'mp/create-mp.html'
+    success_url = '/'
 
 
 @login_required

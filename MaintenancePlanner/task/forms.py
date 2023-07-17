@@ -1,5 +1,6 @@
 from django import forms
 
+from MaintenancePlanner.accounts.models import AppUser
 from MaintenancePlanner.task.models import Task
 
 
@@ -14,6 +15,10 @@ class CreateTaskForm(forms.ModelForm):
             'created_on': forms.DateInput(format="%d/%m/%Y", attrs={'class': 'form-control', 'type': 'date'}),
 
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['technician'].queryset = AppUser.objects.filter(role='OPERATOR')
 
 
 # class DisabledFormMixin:

@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added button delete task to the manager and supervisor" />
+    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added button delete task to the manager and supervisor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/templates/mp/mp-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/sidebar.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +119,7 @@
       <workItem from="1689406669504" duration="5620000" />
       <workItem from="1689492770176" duration="1409000" />
       <workItem from="1689572357016" duration="54000" />
-      <workItem from="1689572540943" duration="6404000" />
+      <workItem from="1689572540943" duration="10750000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -328,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689580495386</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added button delete task to the manager and supervisor">
+      <created>1689582000016</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1689582000016</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,16 +371,5 @@
     <MESSAGE value="Added Complete task button" />
     <MESSAGE value="Added button delete task to the manager and supervisor" />
     <option name="LAST_COMMIT_MESSAGE" value="Added button delete task to the manager and supervisor" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/MaintenancePlanner/task/views.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
