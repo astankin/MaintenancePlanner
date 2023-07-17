@@ -7,7 +7,6 @@ from PIL import Image
 from MaintenancePlanner.accounts.validators import user_name_validator
 
 
-# Create your models here.
 class AppUser(AbstractUser, PermissionsMixin):
     first_name = models.CharField(
         max_length=30,
