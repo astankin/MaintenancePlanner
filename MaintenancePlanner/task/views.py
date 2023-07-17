@@ -61,9 +61,13 @@ class UpdateTask(LoginRequiredMixin, AllowedUsersMixin, UpdateView):
     success_url = reverse_lazy('all-tasks')
 
 
-class DeleteTask(LoginRequiredMixin, AllowedUsersMixin, DeleteView):
-    allowed_roles = ['MANAGER', 'SUPERVISOR']
-    model = Task
+@login_required()
+@allowed_users(allowed_roles=['MANAGER', 'SUPERVISOR'])
+def delete_task(request, pk):
+    task = Task.objects.get(pk=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect(request.META['HTTP_REFERER'])
 
 
 class AllTasksList(LoginRequiredMixin, AllowedUsersMixin, ListView):
