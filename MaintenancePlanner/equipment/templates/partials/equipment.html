@@ -15,7 +15,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Type</th>
                             <th scope="col">Department</th>
-                            <th scope="col">Service history</th>
+                            <th scope="col"></th>
                             <th scope="col">Actions</th>
 
                         </tr>
@@ -28,8 +28,9 @@
                                 <td>{{ eq.type }}</td>
                                 <td>{{ eq.department }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{% url 'service-history' eq.id %}">
-                                        <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+                                    <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                                       href="{% url 'service-history' eq.id %}">
+{#                                        <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>#}
                                         Service History
                                     </a>
                                 </td>
