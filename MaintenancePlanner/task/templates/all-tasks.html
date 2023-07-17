@@ -41,9 +41,9 @@
                                     <td>{{ task.description|truncatechars:50 }}</td>
                                     <td>{{ task.created_on }}</td>
                                     <td>{% if task.complete %}
-                                        <span class="text-success fw-bold">Complete</span>
+                                        <span class="text-success fw-bold">Completed</span>
                                     {% else %}
-                                        <span class="text-danger fw-bold">Incomplete</span>
+                                        <span class="text-danger fw-bold">Uncompleted</span>
                                     {% endif %}</td>
                                     <td>
                                         {% if task.complete %}

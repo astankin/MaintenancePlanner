@@ -33,7 +33,6 @@ def create_task(request, pk):
 
 
 class UserTaskList(LoginRequiredMixin, ListView):
-
     model = Task
     context_object_name = 'tasks'
     template_name = 'user-task-list.html'
@@ -73,3 +72,10 @@ class AllTasksList(LoginRequiredMixin, AllowedUsersMixin, ListView):
     context_object_name = 'tasks'
     template_name = 'all-tasks.html'
     ordering = ['equipment', 'technician']
+
+
+def complete_task(request, pk):
+    task = Task.objects.get(pk=pk)
+    task.complete = True
+    task.save()
+    return redirect(request.META['HTTP_REFERER'])

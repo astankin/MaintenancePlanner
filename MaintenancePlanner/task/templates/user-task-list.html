@@ -25,6 +25,7 @@
                                 <th scope="col">Task Title</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Created on</th>
+                                <th scope="col">Actions</th>
                                 <th scope="col">Status</th>
                             </tr>
                             </thead>
@@ -41,7 +42,15 @@
                                         </a>
                                     </td>
                                     <td>{{ task.description|truncatechars:50 }}</td>
+
                                     <td>{{ task.created_on }}</td>
+                                    <td>
+                                        {% if not task.complete %}
+                                            <a class="btn btn-success" href="{% url 'complete-task' task.id %}">
+                                            Complete
+                                        </a>
+                                        {% endif %}
+                                    </td>
                                     <td>{% if task.complete %}
                                         <span class="text-success fw-bold">Completed</span>
                                     {% else %}
