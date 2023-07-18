@@ -4,41 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added button delete task to the manager and supervisor">
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/account/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/account/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/account/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/account/models/test_user_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/account/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/department/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/department/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/department/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/department/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/equipment/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/equipment/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/equipment/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/equipment/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/maintenance-plan/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/maintenance-plan/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/maintenance-plan/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/maintenance-plan/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/operation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/operation/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/operation/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/operation/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/plant/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/plant/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/plant/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/plant/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/task/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/task/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/task/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/task/views/__init__.py" afterDir="false" />
+    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added user model tests">
+      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/migrations/0003_alter_appuser_username.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/equipment/migrations/0005_remove_equipment_last_checked_date_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/account/forms/test_user_register_form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/account/forms/test_user_update_form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/account/views/test_user_login_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/account/models/test_user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/account/models/test_user_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,8 +83,8 @@
       <recent name="C:\Users\user\Documents\Python\MaintenancePlanner\MaintenancePlanner\maintenance_plan\templates\operation" />
     </key>
   </component>
-  <component name="RunManager" selected="Django tests.Test: tests.account.models.test_user_model.UserCreationTest.test_invalid_username">
-    <configuration name="Test: tests.account.models.test_user_model" type="DjangoTestsConfigurationType" temporary="true">
+  <component name="RunManager" selected="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_invalid_credentials_login">
+    <configuration name="Test: tests.account.views.test_user_login_view.LoginUserViewTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="MaintenancePlanner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,14 +97,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="tests.account.models.test_user_model" />
+      <option name="TARGET" value="tests.account.views.test_user_login_view.LoginUserViewTest" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: tests.account.models.test_user_model.ProfileModelTest" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_authenticated_user_redirect" type="DjangoTestsConfigurationType" temporary="true">
       <module name="MaintenancePlanner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,14 +117,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="tests.account.models.test_user_model.ProfileModelTest" />
+      <option name="TARGET" value="tests.account.views.test_user_login_view.LoginUserViewTest.test_authenticated_user_redirect" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: tests.account.models.test_user_model.UserCreationTest" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_invalid_credentials_login" type="DjangoTestsConfigurationType" temporary="true">
       <module name="MaintenancePlanner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,14 +137,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="tests.account.models.test_user_model.UserCreationTest" />
+      <option name="TARGET" value="tests.account.views.test_user_login_view.LoginUserViewTest.test_invalid_credentials_login" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: tests.account.models.test_user_model.UserCreationTest.test_if_user_is_created" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_login_get_request" type="DjangoTestsConfigurationType" temporary="true">
       <module name="MaintenancePlanner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,14 +157,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="tests.account.models.test_user_model.UserCreationTest.test_if_user_is_created" />
+      <option name="TARGET" value="tests.account.views.test_user_login_view.LoginUserViewTest.test_login_get_request" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: tests.account.models.test_user_model.UserCreationTest.test_invalid_username" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_valid_credentials_login" type="DjangoTestsConfigurationType" temporary="true">
       <module name="MaintenancePlanner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -199,7 +177,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="tests.account.models.test_user_model.UserCreationTest.test_invalid_username" />
+      <option name="TARGET" value="tests.account.views.test_user_login_view.LoginUserViewTest.test_valid_credentials_login" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -232,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: tests.account.models.test_user_model.UserCreationTest.test_invalid_username" />
-        <item itemvalue="Django tests.Test: tests.account.models.test_user_model.UserCreationTest" />
-        <item itemvalue="Django tests.Test: tests.account.models.test_user_model" />
-        <item itemvalue="Django tests.Test: tests.account.models.test_user_model.UserCreationTest.test_if_user_is_created" />
-        <item itemvalue="Django tests.Test: tests.account.models.test_user_model.ProfileModelTest" />
+        <item itemvalue="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_invalid_credentials_login" />
+        <item itemvalue="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest" />
+        <item itemvalue="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_valid_credentials_login" />
+        <item itemvalue="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_authenticated_user_redirect" />
+        <item itemvalue="Django tests.Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_login_get_request" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +239,7 @@
       <workItem from="1689406669504" duration="5620000" />
       <workItem from="1689492770176" duration="1409000" />
       <workItem from="1689572357016" duration="54000" />
-      <workItem from="1689572540943" duration="18515000" />
+      <workItem from="1689572540943" duration="36642000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -494,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689593157988</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added user model tests">
+      <created>1689602493805</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1689602493805</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,15 +504,30 @@
     <MESSAGE value="Added service history button" />
     <MESSAGE value="Added Complete task button" />
     <MESSAGE value="Added button delete task to the manager and supervisor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button delete task to the manager and supervisor" />
+    <MESSAGE value="Added user model tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user model tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest_test_form_missing_required_field.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest.test_form_missing_required_field Coverage Results" MODIFIED="1689664162314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest Coverage Results" MODIFIED="1689675356510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_ProfileModelTest.coverage" NAME="Test: tests.account.models.test_user_model.ProfileModelTest Coverage Results" MODIFIED="1689598927664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest Coverage Results" MODIFIED="1689601515243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model.coverage" NAME="Test: tests.account.models.test_user_model Coverage Results" MODIFIED="1689601221779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest Coverage Results" MODIFIED="1689664003781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest_test_invalid_first_name_raises.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest.test_invalid_first_name_raises Coverage Results" MODIFIED="1689658963288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest_test_user_register_form_missing_required_field.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest.test_user_register_form_missing_required_field Coverage Results" MODIFIED="1689675308060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserModelTest.coverage" NAME="Test: tests.account.models.test_user_model.UserModelTest Coverage Results" MODIFIED="1689598281119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_ProfileModelTest_test_profile_creation.coverage" NAME="Test: tests.account.models.test_user_model.ProfileModelTest.test_profile_creation Coverage Results" MODIFIED="1689598752714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest_test_if_user_is_created.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest.test_if_user_is_created Coverage Results" MODIFIED="1689600863031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest_test_login_get_request.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_login_get_request Coverage Results" MODIFIED="1689677431835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest_test_invalid_username.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest.test_invalid_username Coverage Results" MODIFIED="1689601593481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest_test_valid_credentials_login.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_valid_credentials_login Coverage Results" MODIFIED="1689682008349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest_test_user_register_form_save_with_invalid_data.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest.test_user_register_form_save_with_invalid_data Coverage Results" MODIFIED="1689664388247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest_test_login_valid_credentials.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_login_valid_credentials Coverage Results" MODIFIED="1689677183959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest_test_authenticated_user_redirect.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_authenticated_user_redirect Coverage Results" MODIFIED="1689681209227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest_test_form_passwords_mismatch.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest.test_form_passwords_mismatch Coverage Results" MODIFIED="1689664446297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest Coverage Results" MODIFIED="1689682208742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_views_test_user_login_view_LoginUserViewTest_test_invalid_credentials_login.coverage" NAME="Test: tests.account.views.test_user_login_view.LoginUserViewTest.test_invalid_credentials_login Coverage Results" MODIFIED="1689686603670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model.coverage" NAME="Test: tests.account.models.test_user_model Coverage Results" MODIFIED="1689601221779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_models_test_user_model_UserCreationTest_test_profile_create_when_invalid_name_raises.coverage" NAME="Test: tests.account.models.test_user_model.UserCreationTest.test_profile_create_when_invalid_name_raises Coverage Results" MODIFIED="1689659198801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_update_form_UserUpdateFormTest.coverage" NAME="Test: tests.account.forms.test_user_update_form.UserUpdateFormTest Coverage Results" MODIFIED="1689673826206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

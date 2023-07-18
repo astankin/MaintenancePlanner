@@ -8,6 +8,13 @@ from MaintenancePlanner.accounts.validators import user_name_validator
 
 
 class AppUser(AbstractUser, PermissionsMixin):
+    username = models.CharField(
+        max_length=30,
+        validators=[
+            MinLengthValidator(4),
+        ],
+        unique=True,
+    )
     first_name = models.CharField(
         max_length=30,
         validators=[

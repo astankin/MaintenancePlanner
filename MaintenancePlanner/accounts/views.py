@@ -19,10 +19,8 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            # login(request, user)
+            form.save()
             username = form.cleaned_data.get('username')
-            # messages.success(request, f'Account created for {username}!')
             return render(request, 'success-register.html', {'username': username})
     else:
         form = UserRegisterForm()
