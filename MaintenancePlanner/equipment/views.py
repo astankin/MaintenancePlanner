@@ -5,9 +5,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 
-from MaintenancePlanner.accounts.decorators import allowed_users
 from MaintenancePlanner.accounts.mixins import AllowedUsersMixin
-from MaintenancePlanner.accounts.models import AppUser
+
 from MaintenancePlanner.equipment.filters import EquipmentFilter
 from MaintenancePlanner.equipment.forms import EquipmentForm
 from MaintenancePlanner.equipment.models import Equipment

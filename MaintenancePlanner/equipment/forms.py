@@ -19,7 +19,6 @@ class EquipmentForm(forms.ModelForm):
             'serial_number': forms.TextInput(attrs={'class': 'form-control'}),
             'plant': forms.Select(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
-            'location': forms.TextInput(attrs={'class': 'form-control'}),
             'year_of_manufacture': forms.NumberInput(attrs={'class': 'form-control'}),
 
         }
