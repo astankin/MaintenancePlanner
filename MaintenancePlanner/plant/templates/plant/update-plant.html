@@ -9,11 +9,11 @@
                       <i class="fa-solid fa-plus fa-lg me-2"></i> Update Report
                   </div>
                   <div class="card-body">
-                      <form action="{% url 'update-report' plant.id %}" method="POST">
+                      <form action="{% url 'update-plant' plant.id %}" method="POST">
                           {% csrf_token %}
                           {{ form.as_p}}
                           <button type="submit" class="btn btn-primary">Update</button>
-                          <a href="#" class="btn btn-secondary">Cancel</a>
+                          <a href="javascript:window.history.back()" class="btn btn-secondary">Cancel</a>
                       </form>
                   </div>
             </div>

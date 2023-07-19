@@ -13,9 +13,9 @@ from MaintenancePlanner.maintenance_plan.models import MaintenancePlanModel, Ope
 
 
 # Create your views here.
-class ListMp(LoginRequiredMixin, ListView):
-    model = MaintenancePlanModel
-    template_name = 'mp/mp-list.html'
+# class ListMp(LoginRequiredMixin, ListView):
+#     model = MaintenancePlanModel
+#     template_name = 'mp/mp-list.html'
 
 
 @login_required

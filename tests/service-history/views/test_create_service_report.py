@@ -10,7 +10,7 @@ AppUser = get_user_model()
 
 class CreateServiceReportViewTest(TestCase):
     def test_create_report_when_user_is_loggedin_expect_to_create_report(self):
-        user = create_user()
+        user = create_user('MANAGER')
         credentials = {
             'username': 'astankin',
             'password': 'password123',
