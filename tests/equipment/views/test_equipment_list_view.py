@@ -1,28 +1,15 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.urls import reverse
-
 from MaintenancePlanner.equipment.models import Equipment
-from MaintenancePlanner.plant.models import Plant, Department
-
-AppUser = get_user_model()
+from tests.common.test_data import create_plant, create_department, create_user
 
 
 class EquipmentListViewTest(TestCase):
     def setUp(self):
-        self.plant = Plant.objects.create(
-            name='TestPlant',
-            country='Bulgaria',
-            city='Plovdiv',
-            address='Some address',
-            cost_center='BG20'
-        )
-        self.department = Department.objects.create(name='TestDepartment', plant_id=self.plant.id)
-        self.user = AppUser.objects.create_user(
-            username='astankin',
-            password='password123',
-            email='astankin@abv.bg',
-            role='MANAGER')
+        self.plant = create_plant()
+        self.department = create_department()
+        self.user = create_user()
 
     def test_login_user_username_to_be_correct(self):
         credentials = {

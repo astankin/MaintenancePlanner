@@ -4,8 +4,9 @@ from django.test import TestCase, RequestFactory
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+from MaintenancePlanner import settings
 from MaintenancePlanner.accounts.views import login_user
-
+from tests.common.test_data import create_user
 
 AppUser = get_user_model()
 
@@ -13,12 +14,7 @@ AppUser = get_user_model()
 class LoginUserViewTest(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user = AppUser.objects.create_user(
-            username='astankin',
-            password='password123',
-            email='astankin@abv.bg',
-            role='MANAGER'
-        )
+        self.user = create_user()
 
     def test_authenticated_user_redirect(self):
         request = self.factory.get('/login/')
@@ -31,15 +27,11 @@ class LoginUserViewTest(TestCase):
         self.assertEqual(redirected_response.status_code, 200)
 
     def test_valid_credentials_login(self):
-        data = {
+        credentials = {
             'username': 'astankin',
             'password': 'password123'
         }
-        request = self.factory.post('/login/', data)
-        request.user = AnonymousUser()
-
-        middleware = SessionMiddleware(SessionMiddleware(get_response=lambda r: None))
-        middleware.process_request(request)
-
-        response = login_user(request)
+        response = self.client.post(reverse('login'), data=credentials)
         self.assertEqual(response.status_code, 302)
+        self.assertEqual('/', response.headers.get('Location'))
+

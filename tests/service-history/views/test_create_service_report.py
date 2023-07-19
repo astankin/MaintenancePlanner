@@ -2,43 +2,22 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from MaintenancePlanner import settings
-from MaintenancePlanner.equipment.models import Equipment
-from MaintenancePlanner.plant.models import Plant, Department
 from MaintenancePlanner.service_history.models import ServiceHistory
+from tests.common.test_data import create_equipment, create_user
 
 AppUser = get_user_model()
 
 
 class CreateServiceReportViewTest(TestCase):
     def test_create_report_when_user_is_loggedin_expect_to_create_report(self):
-        AppUser.objects.create_user(
-            username='astankin',
-            password='password123',
-            email='astankin@abv.bg',
-            role='MANAGER')
+        user = create_user()
         credentials = {
             'username': 'astankin',
             'password': 'password123',
         }
         self.client.login(**credentials)
-        plant = Plant.objects.create(
-            name='TestPlant',
-            country='Bulgaria',
-            city='Plovdiv',
-            address='Address',
-            cost_center='BG20',
-        )
-        department = Department.objects.create(
-            name='TestDepartment',
-            plant=plant
-        )
-        equipment = Equipment.objects.create(
-            description='Test Equipment',
-            type='Machine',
-            currency_code='EUR',
-            plant=plant,
-            department=department,
-        )
+
+        equipment = create_equipment()
 
         form_data = {
             'equipment': equipment.id,
