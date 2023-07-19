@@ -8,10 +8,17 @@
 
 {% include 'partials/navbar.html' %}
 
-<main>
-    {% include 'partials/messages.html' %}
-    {% block content %}
-    {% endblock %}
+{#<main>#}
+{#    {% include 'partials/messages.html' %}#}
+{#    {% block content %}#}
+{#    {% endblock %}#}
+{#</main>#}
+<main style="margin-top: 58px">
+    <div class="container pt-4">
+        {% block content %}
+
+        {% endblock %}
+    </div>
 </main>
 
 {% if user.is_authenticated %}
