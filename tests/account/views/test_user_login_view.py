@@ -2,7 +2,10 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.test import TestCase, RequestFactory
 from django.contrib.auth import get_user_model
+from django.urls import reverse
+
 from MaintenancePlanner.accounts.views import login_user
+
 
 AppUser = get_user_model()
 

@@ -3,6 +3,7 @@ from django.test import TestCase, RequestFactory
 from django.shortcuts import reverse
 
 from MaintenancePlanner.accounts.decorators import unauthenticated_user, allowed_users
+from MaintenancePlanner.accounts.models import Profile
 from MaintenancePlanner.accounts.views import register
 
 AppUser = get_user_model()
@@ -16,6 +17,11 @@ class RegisterViewTest(TestCase):
             password='password123@',
             role='MANAGER',
         )
+
+    def test_when_user_is_created_profile_is_created(self):
+        created_profile = Profile.objects.filter(id=self.user.id).get()
+        self.assertEqual('astankin Profile', str(created_profile))
+
 
     def test_unauthenticated_user_redirect_to_home_page(self):
         request = self.factory.get(reverse('register'))
