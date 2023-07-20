@@ -26,6 +26,7 @@ body {
 @media (max-width: 991.98px) {
   .sidebar {
     width: 100%;
+
   }
 }
 .sidebar .active {
@@ -39,5 +40,5 @@ body {
   height: calc(100vh - 48px);
   padding-top: 0.5rem;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
 }

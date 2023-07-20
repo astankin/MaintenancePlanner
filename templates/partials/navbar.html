@@ -30,7 +30,7 @@
                 </form>
             {% endif %}
             <!-- Right links -->
-            <ul class="navbar-nav ms-auto d-flex flex-row ">
+            <ul class="navbar-nav ms-auto d-flex flex-row">
                 <!-- If user is not logged in -->
                 {% if not request.user.is_authenticated %}
                     <li class="nav-item">
@@ -40,7 +40,7 @@
                     </li>
                 {% else %}
                     <!-- Avatar -->
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-flex align-items-center">
                         <div class="btn-group dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                aria-haspopup="true" aria-expanded="false">
@@ -59,7 +59,7 @@
                                 <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
                             </div>
                         </div>
-                        {{ request.user.role }}
+                        <h6 style="color: #5a6268">{{ request.user.role }}</h6>
                     </li>
                 {% endif %}
             </ul>

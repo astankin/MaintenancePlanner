@@ -5,6 +5,10 @@ from MaintenancePlanner.task.models import Task
 
 
 class CreateTaskForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['technician'].queryset = AppUser.objects.filter(role='OPERATOR')
+
     class Meta:
         model = Task
         exclude = ('complete', 'equipment')
@@ -15,10 +19,6 @@ class CreateTaskForm(forms.ModelForm):
             'created_on': forms.DateInput(format="%d/%m/%Y", attrs={'class': 'form-control', 'type': 'date'}),
 
         }
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['technician'].queryset = AppUser.objects.filter(role='OPERATOR')
 
 
 # class DisabledFormMixin:
@@ -41,7 +41,7 @@ class CreateTaskForm(forms.ModelForm):
 class UserUpdateTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('complete', )
+        fields = ('complete',)
 
         labels = {
             'complete': 'Mark as completed: '

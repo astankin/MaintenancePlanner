@@ -14,11 +14,14 @@
                         {{ form|crispy }}
                         <button type="submit" class="btn  btn-primary mt-3 mb-3">Sign in</button>
                     </form>
-{#                    <div class="border-top pt-3">#}
-{#                        <small class="text-muted">#}
-{#                            Need An Account ? <a class="ml-2 text-decoration-none" href="{% url 'register' %}">Sign Up Now</a>#}
-{#                        </small>#}
-{#                    </div>#}
+                    <div class="border-top pt-3">
+                        <small class="text-muted">
+                            Forgot You Password ?
+                            <a class="ml-2 text-decoration-none" href="{% url 'password-reset' %}">
+                                Reset Password
+                            </a>
+                        </small>
+                    </div>
 
                 </div>
             </div>
