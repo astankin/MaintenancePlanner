@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Updated layout">
-      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/password-reset-confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/password-reset-done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/password-reset.html" afterDir="false" />
+    <list default="true" id="81c437b5-69b0-4527-8f7f-11d1649b8b06" name="Changes" comment="Added password reset functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/templates/mp/maintenance-plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/maintenance_plan/templates/mp/maintenance-plan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/task/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/side-bar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/side-bar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/password-reset-done.html" beforeDir="false" afterPath="$PROJECT_DIR$/MaintenancePlanner/accounts/templates/password-reset-done.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +233,8 @@
       <workItem from="1689744794047" duration="16714000" />
       <workItem from="1689776514581" duration="12316000" />
       <workItem from="1689800433881" duration="3253000" />
-      <workItem from="1689830773272" duration="13640000" />
+      <workItem from="1689830773272" duration="14280000" />
+      <workItem from="1689917742500" duration="723000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1688500869701</created>
@@ -506,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689835957014</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added password reset functionality">
+      <created>1689859643984</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1689859643984</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +531,8 @@
     <MESSAGE value="Added create service report tests" />
     <MESSAGE value="Added create plant report tests" />
     <MESSAGE value="Updated layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated layout" />
+    <MESSAGE value="Added password reset functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added password reset functionality" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MaintenancePlanner$Test__tests_account_forms_test_user_register_form_UserRegisterFormTest_test_form_missing_required_field.coverage" NAME="Test: tests.account.forms.test_user_register_form.UserRegisterFormTest.test_form_missing_required_field Coverage Results" MODIFIED="1689664162314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
