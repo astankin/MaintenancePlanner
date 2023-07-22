@@ -18,27 +18,27 @@ SECRET_KEY = 'django-insecure-9r%nkvjos*l1@@$(_vqn@(eg!b7(c(g9ws3nyqsxwb!-s6qx%y
 DEBUG = True
 # DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.66.157.172']
 # ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "HOST": os.getenv('DB_HOST', '127.0.0.1'),
-#         "PORT": os.getenv('DB_PORT', '5432'),
-#         "NAME": os.getenv('DB_NAME', 'maintenance_planner_db'),
-#         "USER": os.getenv('DB_USER', 'postgres'),
-#         "PASSWORD": os.getenv('DB_PASSWORD', 'root'),
-#
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.getenv('DB_HOST', '127.0.0.1'),
+        "PORT": os.getenv('DB_PORT', '5432'),
+        "NAME": os.getenv('DB_NAME', 'maintenance_planner_db'),
+        "USER": os.getenv('DB_USER', 'postgres'),
+        "PASSWORD": os.getenv('DB_PASSWORD', 'root'),
+
+    }
+}
 
 
 # DATABASES = {
